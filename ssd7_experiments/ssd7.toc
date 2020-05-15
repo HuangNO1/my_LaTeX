@@ -1,32 +1,37 @@
 \contentsline {part}{I\hspace {1em}實驗一、數據庫與表的基本操作}{3}{part.1}% 
 \contentsline {section}{\numberline {0.1}實驗目的}{4}{section.0.1}% 
 \contentsline {section}{\numberline {0.2}實驗內容}{4}{section.0.2}% 
-\contentsline {subsection}{\numberline {0.2.1}}{4}{subsection.0.2.1}% 
-\contentsline {subsection}{\numberline {0.2.2}}{4}{subsection.0.2.2}% 
-\contentsline {section}{\numberline {0.3}實驗方法與實驗步驟}{4}{section.0.3}% 
-\contentsline {section}{\numberline {0.4}實驗結果}{4}{section.0.4}% 
-\contentsline {section}{\numberline {0.5}實驗小結}{4}{section.0.5}% 
-\contentsline {part}{II\hspace {1em}實驗一、數據庫與表的基本操作}{5}{part.2}% 
-\contentsline {section}{\numberline {0.6}實驗目的}{6}{section.0.6}% 
-\contentsline {section}{\numberline {0.7}實驗內容}{6}{section.0.7}% 
-\contentsline {section}{\numberline {0.8}實驗方法與實驗步驟}{6}{section.0.8}% 
-\contentsline {section}{\numberline {0.9}實驗結果}{6}{section.0.9}% 
-\contentsline {section}{\numberline {0.10}實驗小結}{6}{section.0.10}% 
-\contentsline {part}{III\hspace {1em}實驗一、數據庫與表的基本操作}{7}{part.3}% 
-\contentsline {section}{\numberline {0.11}實驗目的}{8}{section.0.11}% 
-\contentsline {section}{\numberline {0.12}實驗內容}{8}{section.0.12}% 
-\contentsline {section}{\numberline {0.13}實驗方法與實驗步驟}{8}{section.0.13}% 
-\contentsline {section}{\numberline {0.14}實驗結果}{8}{section.0.14}% 
-\contentsline {section}{\numberline {0.15}實驗小結}{8}{section.0.15}% 
-\contentsline {part}{IV\hspace {1em}實驗一、數據庫與表的基本操作}{9}{part.4}% 
-\contentsline {section}{\numberline {0.16}實驗目的}{10}{section.0.16}% 
-\contentsline {section}{\numberline {0.17}實驗內容}{10}{section.0.17}% 
-\contentsline {section}{\numberline {0.18}實驗方法與實驗步驟}{10}{section.0.18}% 
-\contentsline {section}{\numberline {0.19}實驗結果}{10}{section.0.19}% 
-\contentsline {section}{\numberline {0.20}實驗小結}{10}{section.0.20}% 
-\contentsline {part}{V\hspace {1em}實驗一、數據庫與表的基本操作}{11}{part.5}% 
-\contentsline {section}{\numberline {0.21}實驗目的}{12}{section.0.21}% 
-\contentsline {section}{\numberline {0.22}實驗內容}{12}{section.0.22}% 
-\contentsline {section}{\numberline {0.23}實驗方法與實驗步驟}{12}{section.0.23}% 
-\contentsline {section}{\numberline {0.24}實驗結果}{12}{section.0.24}% 
-\contentsline {section}{\numberline {0.25}實驗小結}{12}{section.0.25}% 
+\contentsline {subsection}{\numberline {0.2.1}创建学生-课程数据库}{4}{subsection.0.2.1}% 
+\contentsline {subsection}{\numberline {0.2.2}創建 Table}{4}{subsection.0.2.2}% 
+\contentsline {section}{\numberline {0.3}實驗方法與實驗步驟}{5}{section.0.3}% 
+\contentsline {section}{\numberline {0.4}實驗結果}{5}{section.0.4}% 
+\contentsline {subsection}{\numberline {0.4.1}在 ArchLinux 上配置好 MySQL}{5}{subsection.0.4.1}% 
+\contentsline {subsection}{\numberline {0.4.2}創建 student\_data database}{6}{subsection.0.4.2}% 
+\contentsline {subsection}{\numberline {0.4.3}將 Table 創建出來}{6}{subsection.0.4.3}% 
+\contentsline {subsection}{\numberline {0.4.4}新增屬性列與刪除屬性列}{9}{subsection.0.4.4}% 
+\contentsline {subsection}{\numberline {0.4.5}SQL 的備份與還原}{11}{subsection.0.4.5}% 
+\contentsline {section}{\numberline {0.5}實驗小結}{14}{section.0.5}% 
+\contentsline {part}{II\hspace {1em}實驗二、數據庫查詢與更新}{15}{part.2}% 
+\contentsline {section}{\numberline {0.6}實驗目的}{16}{section.0.6}% 
+\contentsline {section}{\numberline {0.7}實驗內容}{16}{section.0.7}% 
+\contentsline {section}{\numberline {0.8}實驗方法與實驗步驟}{16}{section.0.8}% 
+\contentsline {section}{\numberline {0.9}實驗結果}{16}{section.0.9}% 
+\contentsline {section}{\numberline {0.10}實驗小結}{16}{section.0.10}% 
+\contentsline {part}{III\hspace {1em}實驗一、數據庫與表的基本操作}{17}{part.3}% 
+\contentsline {section}{\numberline {0.11}實驗目的}{18}{section.0.11}% 
+\contentsline {section}{\numberline {0.12}實驗內容}{18}{section.0.12}% 
+\contentsline {section}{\numberline {0.13}實驗方法與實驗步驟}{18}{section.0.13}% 
+\contentsline {section}{\numberline {0.14}實驗結果}{18}{section.0.14}% 
+\contentsline {section}{\numberline {0.15}實驗小結}{18}{section.0.15}% 
+\contentsline {part}{IV\hspace {1em}實驗一、數據庫與表的基本操作}{19}{part.4}% 
+\contentsline {section}{\numberline {0.16}實驗目的}{20}{section.0.16}% 
+\contentsline {section}{\numberline {0.17}實驗內容}{20}{section.0.17}% 
+\contentsline {section}{\numberline {0.18}實驗方法與實驗步驟}{20}{section.0.18}% 
+\contentsline {section}{\numberline {0.19}實驗結果}{20}{section.0.19}% 
+\contentsline {section}{\numberline {0.20}實驗小結}{20}{section.0.20}% 
+\contentsline {part}{V\hspace {1em}實驗一、數據庫與表的基本操作}{21}{part.5}% 
+\contentsline {section}{\numberline {0.21}實驗目的}{22}{section.0.21}% 
+\contentsline {section}{\numberline {0.22}實驗內容}{22}{section.0.22}% 
+\contentsline {section}{\numberline {0.23}實驗方法與實驗步驟}{22}{section.0.23}% 
+\contentsline {section}{\numberline {0.24}實驗結果}{22}{section.0.24}% 
+\contentsline {section}{\numberline {0.25}實驗小結}{22}{section.0.25}% 
