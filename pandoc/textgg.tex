@@ -1,0 +1,1133 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\author{}
+\date{}
+
+\begin{document}
+
+《数据库系统SSD7》
+
+课程实验指导书
+
+谭长庚 编写
+
+课程编号 { 390222Z10}
+
+总 学 时 { 48}
+
+实验学时 { 8}
+
+课外学时 { 20}
+
+{}
+
+中南大学计算机学院
+
+2020年1月
+
+\hypertarget{ux5b9eux9a8c1ux6570ux636eux5e93ux4e0eux8868ux7684ux57faux672cux64cdux4f5c}{%
+\section{实验1《数据库与表的基本操作》}\label{ux5b9eux9a8c1ux6570ux636eux5e93ux4e0eux8868ux7684ux57faux672cux64cdux4f5c}}
+
+实验学时： { 2}
+
+每组人数： { 1}
+
+实验类型： { 1} （1：基础性 2：综合性 3：设计性 4：研究性）
+
+实验要求： { 1} （1：必修 2：选修 3：其它）
+
+实验类别： { 3} （1：基础 2：专业基础 3：专业 4：其它）
+
+{}
+
+一、实验目的
+
+\begin{quote}
+1．熟练掌握一种DBMS的使用方法，完成数据库的创建、删除和连接；数据表的建立、删除；表结构的修改。
+
+2. 加深对表的实体完整性、参照完整性和用户自定义完整性的理解。
+\end{quote}
+
+二、实验内容
+
+\begin{quote}
+在以下实验中，使用学生-课程数据库，它描述了学生的基本信息、课程的基本信息及学生选修课程的信息。用SQL语句分别完成。
+
+1.~
+创建学生-课程数据库，数据文件名为student\_data、大小10M，日志文件名为student\_log、大小5M的新数据库，该数据库名为student\_xxxxxx，xxxxxx表示班级学号。1801班12号，数据库名为student\_180112。
+
+2.~ 创建学生关系表S ：
+\end{quote}
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule
+\endhead
+\begin{minipage}[t]{0.17\columnwidth}\raggedright
+\begin{quote}
+学号
+\end{quote}\strut
+\end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright
+\begin{quote}
+姓名
+\end{quote}\strut
+\end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright
+\begin{quote}
+性别
+\end{quote}\strut
+\end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright
+\begin{quote}
+年龄
+\end{quote}\strut
+\end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright
+所在系\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.17\columnwidth}\raggedright
+\begin{quote}
+Sno
+\end{quote}\strut
+\end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright
+\begin{quote}
+Sname
+\end{quote}\strut
+\end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright
+\begin{quote}
+Ssex
+\end{quote}\strut
+\end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright
+Sage\strut
+\end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright
+sdept\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{quote}
+（3）~ 创建课程关系表C ：
+\end{quote}
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+\endhead
+\begin{minipage}[t]{0.22\columnwidth}\raggedright
+\begin{quote}
+课程号
+\end{quote}\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
+\begin{quote}
+课程名
+\end{quote}\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
+\begin{quote}
+先行课
+\end{quote}\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
+\begin{quote}
+学分
+\end{quote}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.22\columnwidth}\raggedright
+Cno\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
+\begin{quote}
+Cname
+\end{quote}\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
+\begin{quote}
+Cpno
+\end{quote}\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
+\begin{quote}
+ccredit
+\end{quote}\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{quote}
+（4）~ 创建学生-课程表SC ：
+\end{quote}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+\endhead
+\begin{minipage}[t]{0.30\columnwidth}\raggedright
+\begin{quote}
+学号
+\end{quote}\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+\begin{quote}
+课程号
+\end{quote}\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+\begin{quote}
+成绩
+\end{quote}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.30\columnwidth}\raggedright
+\begin{quote}
+Sno
+\end{quote}\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+\begin{quote}
+Cno
+\end{quote}\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+\begin{quote}
+grade
+\end{quote}\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{quote}
+（5）~ 将以上创建表S、C、SC的SQL命令以
+.SQL文件的形式保存在磁盘上。在表中加入至少4个元组，第一个为本人信息。
+
+（6）~ 在表S上增加``出生日期''与``身高''属性列。
+
+（7）~ 删除表S的``身高'' 属性列。
+
+（8）备份数据库，再还原。
+\end{quote}
+
+三、实验要求：
+
+1．预习数据库与表的建立方法；
+
+2．预习备份数据库，还原数据库的方法；
+
+3. 预习表结构的修改方法。
+
+四、实验步骤
+
+1．创建数据库或连接已建立的数据库。
+
+2．在当前数据库上建立新表。
+
+3．定义表的结构。
+
+4． 修改表的结构。
+
+五、实验报告
+
+1．完成本项目实验后，学生应完成实验报告。
+
+2．实验报告格式与要求见附录1。
+
+\hypertarget{ux5b9eux9a8c2ux6570ux636eux8868ux67e5ux8be2ux4e0eux66f4ux65b0}{%
+\section{实验2《数据表查询与更新》}\label{ux5b9eux9a8c2ux6570ux636eux8868ux67e5ux8be2ux4e0eux66f4ux65b0}}
+
+实验学时： { 4}
+
+每组人数： { 1}
+
+实验类型： { 2} （1：基础性 2：综合性 3：设计性 4：研究性）
+
+实验要求： { 1} （1：必修 2：选修 3：其它）
+
+实验类别： { 3} （1：基础 2：专业基础 3：专业 4：其它）
+
+{}
+
+一、实验目的
+
+1.
+熟悉和掌握对数据表中数据的查询操作和SQL命令的使用，学会灵活熟练的使用SQL
+语句的各种形式，加深理解关系运算的各种操作（尤其是关系的选择，投影，连接和除运算）；
+
+2.
+熟悉和掌握数据表中数据的插入、修改、删除操作和命令的使用（熟悉使用UPDATE/INSERT/DELETE语句进行表操作）；加深理解表的定义对数据更新的作用。
+
+二、实验内容
+
+\begin{quote}
+（一）在表S，C，SC上完成以下查询：
+
+1．~查询学生的基本信息；
+
+2．~查询``CS''系学生的基本信息；
+
+3．~查询``CS''系学生年龄不在19到21之间的学生的学号、姓名；
+
+4．~找出``CS''系年龄最大的学生，显示其学号、姓名；
+
+5．~找出各系年龄最大的学生，显示其学号、姓名；
+
+6．~统计``CS''系学生的人数；
+
+7．~统计各系学生的人数，结果按升序排列；
+
+8．~按系统计各系学生的平均年龄，结果按降序排列；
+
+9．~查询无先修课的课程的课程名和学时数；
+
+10．统计每位学生选修课程的门数、学分及其平均成绩；
+
+11．统计选修每门课程的学生人数及各门课程的平均成绩；
+
+12．找出平均成绩在85分以上的学生，结果按系分组，并按平均成绩的升序排列；
+
+13．查询选修了``1''或``2''号课程的学生学号和姓名；
+
+14．查询选修了课程名为``数据库系统''且成绩在60分以下的学生的学号、姓名和成绩；
+
+15．查询每位学生选修了课程的学生信息（显示：学号，姓名，课程号，课程名，成绩）；
+
+16．查询没有选修课程的学生的基本信息；
+
+17．查询选修了3门以上课程的学生学号；
+
+18．查询选修课程成绩至少有一门在80分以上的学生学号；
+
+19．查询选修课程成绩均在80分以上的学生学号；
+
+（二）在表S、C、SC中完成下列更新：
+
+1．~ 将数据分别插入表S、C、SC；
+
+2．~ 将表S、C、SC中的数据保存在磁盘上。
+
+3．~
+在表S、C、SC上练习数据的插入、修改、删除操作。（比较在表上定义/未定义主码（Primary
+Key）或外码（Foreign Key）时的情况）
+
+4．~ 将表S、C、SC中的数据全部删除，再利用磁盘上备份的数据来恢复数据。
+
+5．~
+如果要在表SC中插入某个学生的选课信息（如：学号为``2007001005''，课程号为``c123''，成绩待定），应如何进行？
+
+6．~ 求各系学生的平均成绩，并把结果存入数据库；
+
+7．~ 将``CS''系全体学生的成绩置零；
+
+8．~ 删除``CS''系全体学生的选课记录；
+
+9．~ 删除学号为``S1''的相关信息；
+
+10．将学号为``S1''的学生的学号修改为``S001''；
+
+11．把平均成绩大于80分的男同学的学号和平均成绩存入另一个表S------GRADE（SNO，AVG\_GRADE）；
+
+12．~把选修了课程名为``数据结构''的学生的成绩提高10\%；
+
+13．~把选修了``C2''号课程，且成绩低于该门课程的平均成绩的学生成绩删除掉。
+\end{quote}
+
+三、实验要求：
+
+\begin{quote}
+1． 熟悉DBMS 工作环境；
+
+2．连接到学生-课程数据库
+
+3．复习对表中数据查询SQL语言命令；复习对表中数据的插入、修改和删除的SQL语言命令，了解这些更新语句的基本语法和用法。
+\end{quote}
+
+四、实验步骤
+
+\begin{quote}
+\textbf{查询：}
+
+1．在表Ｓ、Ｃ、ＳＣ上进行简单查询、连接查询、嵌套查询；
+
+2．使用聚合函数的查询、对数据分组查询、对数据的排序查询。
+\end{quote}
+
+\textbf{插入：}
+
+\begin{quote}
+1．用ＳＱＬ命令将数据插入当前数据库的表Ｓ、Ｃ、ＳＣ中；
+
+2．用ＳＱＬ命令形式修改表Ｓ、Ｃ、ＳＣ中的数据；
+
+3．~用ＳＱＬ命令形式~ 删除表Ｓ、Ｃ、ＳＣ中的数据。
+\end{quote}
+
+五、实验报告
+
+1．完成本项目实验后，完成实验报告；
+
+2．实验报告格式与要求见附件。
+
+\textbf{附录 实例（以Sqlsever为例）}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  对于student表，将所有专业号为`001'的，并且入学年份为2006的学生，或是专业号为`003'，并且年龄小于20岁的学生的班级号改为`001'。
+\end{enumerate}
+
+\begin{quote}
+步骤：新建查询-输入代码:
+\end{quote}
+
+use edudb----假设数据库为edudb
+
+go
+
+UPDATE student---student是 edudb中的学生信息表
+
+SET classno='001'
+
+WHERE spno='001' AND entime='2006' or spno='003' and
+(2008-birthday)\textless20
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  对于student表，删掉所有年龄小于20岁，并且专业号为`003'的学生的记录。
+\end{enumerate}
+
+\begin{quote}
+步骤：新建查询-输入代码:
+\end{quote}
+
+use edudb
+
+go
+
+DELETE FROM student
+
+WHERE (2008-birthday)\textless20 and spno='003'
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\item
+  对于student表，插入一条新记录，它的具体信息为，学号：20180302、姓名：李伟龙、性别：男、出生日期：19880808、院系编号：`001'、专业编号：
+\end{enumerate}
+
+\begin{quote}
+`01'、班级号：`003'、入学时间：20070901。
+
+步骤：新建查询-输入代码:
+\end{quote}
+
+INSERT INTO student (sno,sname,sex,birthday,dno,spno,classno,entime)
+
+\begin{quote}
+values ('200700302','李伟龙','男','880808','001','001','003','20070901')
+
+（注意：要将学号的类型改为char（10），否则长度不够无法执行）
+
+\includegraphics[width=5.75903in,height=4.32292in]{media/image1.png}
+\end{quote}
+
+\hypertarget{ux5b9eux9a8c3ux89c6ux56feux4e0eux5b8cux6574ux6027ux7ea6ux675f}{%
+\section{实验3《视图与完整性约束》}\label{ux5b9eux9a8c3ux89c6ux56feux4e0eux5b8cux6574ux6027ux7ea6ux675f}}
+
+实验学时： { 4}
+
+每组人数： { 1}
+
+实验类型： { 2} （1：基础性 2：综合性 3：设计性 4：研究性）
+
+实验要求： { 1} （1：必修 2：选修 3：其它）
+
+实验类别： { 3} （1：基础 2：专业基础 3：专业 4：其它）
+
+{}
+
+一、实验目的
+
+学习灵活熟练的进行视图的操作，认识视图的作用；掌握完整性控制的方法。
+
+1.熟悉和掌握对数据表中视图的定义操作和SQL命令的使用；
+
+2.熟悉和掌握对数据表中视图的查询操作和SQL命令的使用；
+
+3.熟悉和掌握对数据表中视图的更新操作和SQL命令的使用，并注意视图更新与基本表更新的区别与联系；
+
+4．熟悉SQL语言对数据库进行完整性控制的方法。
+
+二、实验内容
+
+（一）以S , C , SC表为基础完成以下视图定义及使用
+
+1．定义``SSCH''院学生基本情况视图V\_SSCH；
+
+2．将S，C，SC表中学生的学号，姓名，课程号，课程名，成绩定义为视图V\_S\_C\_G;
+
+3．将各院学生人数，平均年龄定义为视图V\_NUM\_AVG;
+
+4．将各位学生选修课程的门数及平均成绩定义为视图V\_AVG\_S\_G并查询结果;
+
+5．查询平均成绩为90分以上的学生学号、姓名和成绩；
+
+6．通过视图V\_SSCH，新增加一个学生记录 ('S12','YAN XI',19,
+'SSCH')，并查询结果；
+
+7．通过视图V\_SSCH，删除学号为``S12''学生信息，并查询结果；
+
+8．将视图V\_SSCH中学号为``S12''的学生改名``中南人''。
+
+（二）使用SQL进行数据完整性控制：包括三类完整性、check短语、constrain子句。
+
+1.
+在创建下列关系表时完成如下约束：定义实体完整性;参照完整性（外码、在删除S中的元组时级联删除SC中相应元组、当更新S中的Sno时同时更新SC中的Sno）;用户定义完整性：学生年龄\textless30。
+
+2. 修改S中的约束条件，学号在100－1000之间。
+
+学生关系表S ：
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule
+\endhead
+\begin{minipage}[t]{0.17\columnwidth}\raggedright
+\begin{quote}
+学号
+\end{quote}\strut
+\end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright
+\begin{quote}
+姓名
+\end{quote}\strut
+\end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright
+\begin{quote}
+性别
+\end{quote}\strut
+\end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright
+\begin{quote}
+年龄
+\end{quote}\strut
+\end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright
+所在系\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.17\columnwidth}\raggedright
+\begin{quote}
+Sno
+\end{quote}\strut
+\end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright
+\begin{quote}
+Sname
+\end{quote}\strut
+\end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright
+\begin{quote}
+Ssex
+\end{quote}\strut
+\end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright
+Sage\strut
+\end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright
+sdept\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+~ 创建课程关系表C ：
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+\endhead
+\begin{minipage}[t]{0.22\columnwidth}\raggedright
+\begin{quote}
+课程号
+\end{quote}\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
+\begin{quote}
+课程名
+\end{quote}\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
+\begin{quote}
+先行课
+\end{quote}\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
+\begin{quote}
+学分
+\end{quote}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.22\columnwidth}\raggedright
+Cno\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
+\begin{quote}
+Cname
+\end{quote}\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
+\begin{quote}
+Cpno
+\end{quote}\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
+\begin{quote}
+ccredit
+\end{quote}\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+创建学生-课程表SC ：
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+\endhead
+\begin{minipage}[t]{0.30\columnwidth}\raggedright
+\begin{quote}
+学号
+\end{quote}\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+\begin{quote}
+课程号
+\end{quote}\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+\begin{quote}
+成绩
+\end{quote}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.30\columnwidth}\raggedright
+\begin{quote}
+Sno
+\end{quote}\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+\begin{quote}
+Cno
+\end{quote}\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
+\begin{quote}
+grade
+\end{quote}\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{quote}
+3．用实验验证当操作违反了完整性约束时，系统如何处理？
+
+\textbf{问题：}外键与参照主键是否一定要相同？
+\end{quote}
+
+三、实验要求：
+
+1.连接到学生-课程数据库
+
+2.复习有关视图操作的SQL语言命令；复习有关完整性约束操作的SQL语言命令
+
+四、实验步骤
+
+1．定义视图、对视图进行查询、修改；
+
+2．进行完整性约束定义、修改；
+
+3. 进行约束违例验证。
+
+五、实验报告
+
+1．完成本项目实验后，完成实验报告。
+
+2．实验报告格式与要求见附件。
+
+\hypertarget{ux5b9eux9a8c4ux5b58ux50a8ux8fc7ux7a0b}{%
+\section{实验4《存储过程》}\label{ux5b9eux9a8c4ux5b58ux50a8ux8fc7ux7a0b}}
+
+实验学时： { 4}
+
+每组人数： { 1}
+
+实验类型： { 2} （1：基础性 2：综合性 3：设计性 4：研究性）
+
+实验要求： { 1} （1：必修 2：选修 3：其它）
+
+实验类别： { 3} （1：基础 2：专业基础 3：专业 4：其它）
+
+{}
+
+一、实验目的
+
+\begin{quote}
+理解存储过程的概念、建立和调用方法。进一步熟悉SQL语句对数据库进行完整性控制的方法。
+\end{quote}
+
+二、实验内容
+
+1、利用存储过程查找自己的学号、选修课程及成绩。
+
+2、利用存储过程查找姓``李''并且性别为``M''的学生学号、选修课程。
+
+3、利用存储过程计算某同学（学号作为存储过程的参数）所选课程的平均分。
+
+三、实验要求：
+
+了解熟悉存储过程在不同DBMS上实现的差异，熟悉存储过程的写法与调用。
+
+四、实验步骤
+
+1、设计查找自己的学号、选修课程及成绩的存储过程，以自己的学号作为参数，调用存储过程。
+
+2、设计存储过程查找姓``李''并且性别为``M''的学生学号、选修课程并调用。
+
+3、设计存储过程计算某同学（学号作为存储过程的参数）所选课程的平均分并调用。
+
+五、实验报告
+
+1．完成本项目实验后，完成实验报告。
+
+2．实验报告格式与要求见附件。
+
+六、实验示例
+
+\textbf{下面是个销售数据库：}
+
+（1）/*员工人事表employee */
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule
+\endhead
+emp\_no & char(5) & Not null & primary key & 员工编号\tabularnewline
+emp\_name & char(10) & & & 员工姓名\tabularnewline
+sex & char(1) & & & 性别\tabularnewline
+dept & char(4) & & & 所属部门\tabularnewline
+title & char(6) & & & 职称\tabularnewline
+date\_hired & datetime & & & 到职日\tabularnewline
+birthday & datetime & & & 生日\tabularnewline
+salary & int & & & 薪水\tabularnewline
+addr & char(50) & null & & 住址\tabularnewline
+\bottomrule
+\end{longtable}
+
+（2）/*客户表customer */
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule
+\endhead
+cust\_id & char(5) & Not null & primary key & 客户号\tabularnewline
+cust\_name & char(20) & & & 客户名称\tabularnewline
+addr & char(40) & & & 客户住址\tabularnewline
+tel\_no & char(10) & & & 客户电话\tabularnewline
+zip & char(6) & & & 邮政编码\tabularnewline
+\bottomrule
+\end{longtable}
+
+（3）/*销售主表sales */
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule
+\endhead
+order\_no & int & Not null & primary key & 订单编号\tabularnewline
+cust\_id & char(5) & & & 客户号\tabularnewline
+sale\_id & char(5) & & & 业务员编号\tabularnewline
+tot\_amt & numeric(9,2) & & & 订单金额\tabularnewline
+order\_date & datetime & & & 订货日期\tabularnewline
+ship\_date & datetime & & & 出货日期\tabularnewline
+invoice\_no & char(10) & & & 发票号码\tabularnewline
+\bottomrule
+\end{longtable}
+
+（4）/*销货明细表sale\_item */
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule
+\endhead
+order\_no & int & Not null, & primary key & 订单编号\tabularnewline
+prod\_id & char(5) & Not null, & primary key & 产品编号\tabularnewline
+qty & int & & & 销售数量\tabularnewline
+unit\_price & numeric(7,2) & & & 单价\tabularnewline
+order\_date & datetime & null & & 订单日期\tabularnewline
+\bottomrule
+\end{longtable}
+
+（5）/*产品名称表product */
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule
+\endhead
+pro\_id & char(5) & Not null & primary key & 产品编号\tabularnewline
+prod\_name & char(20) & Not null & & 产品名称\tabularnewline
+\bottomrule
+\end{longtable}
+
+1、模糊查询
+
+create procedure sp\_empname @E\_name varchar(10) as
+
+select a.emp\_name,a.dept,b.tot\_amt
+
+from employee a inner join sales b
+
+on a.emp\_no=b.sale\_id
+
+where a.emp\_name like @E\_name
+
+go
+
+exec sp\_empname '陈\%'
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  利用存储过程计算出'E0014'业务员的销售总金额。
+\end{enumerate}
+
+create procedure sp\_saletot @E\_no char(5),@p\_tot int output as
+
+select @p\_tot=sum(tot\_amt)
+
+from sales
+
+where sale\_id=@E\_no
+
+go
+
+declare @tot\_amt int
+
+exec sp\_saletot E0014, @tot\_amt output
+
+select @tot\_amt
+
+\hypertarget{ux5b9eux9a8c5ux89e6ux53d1ux5668ux4e0eux6e38ux6807}{%
+\section{实验5《触发器与游标》}\label{ux5b9eux9a8c5ux89e6ux53d1ux5668ux4e0eux6e38ux6807}}
+
+实验学时： { 4}
+
+每组人数： { 1}
+
+实验类型： { 2} （1：基础性 2：综合性 3：设计性 4：研究性）
+
+实验要求： { 1} （1：必修 2：选修 3：其它）
+
+实验类别： { 3} （1：基础 2：专业基础 3：专业 4：其它）
+
+{}
+
+一、实验目的
+
+进一步熟悉SQL语句对数据库进行完整性控制的方法；理解触发器的概念、定义方法和触发条件。理解游标的定义、打开、使用、关闭与释放的方法。
+
+二、实验内容
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  设置一个触发器，该触发器仅允许``dbo''用户可以删除学生表内数据。
+\item
+  针对学生表写一个DELETE触发器。
+\item
+  针对学生表写一个UPDATE触发器。
+\item
+  统计学生的平均成绩，输出低于平均分的成绩（使用游标）。
+\end{enumerate}
+
+三、实验要求：
+
+1．熟悉DBMS 工作环境；
+
+2．复习有关SQL语句对数据库进行完整性控制的方法；复习触发器的概念、定义方法和触发条件。复习游标的定义、打开、使用、关闭与释放的方法约束与存储过程的SQL语言命令。
+
+四、实验步骤
+
+1.设置一个触发器，该触发器仅允许``dbo''用户可以删除学生表内数据，否则出错。
+
+2.针对学生表写一个DELETE触发器，删除数据，测试触发。
+
+3.针对学生表写一个UPDATE触发器，更新数据，测试触发。
+
+4.定义游标，统计学生的平均成绩，输出低于平均分的成绩。
+
+五、实验报告
+
+1．完成本项目实验后，完成实验报告。
+
+2．实验报告格式与要求见附件。
+
+六、实验示例
+
+有员工人事表employee
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule
+\endhead
+emp\_no & char(5) & Not null & primary key & 员工编号\tabularnewline
+emp\_name & char(10) & Not null & & 员工姓名\tabularnewline
+sex & char(1) & Not null & & 性别\tabularnewline
+dept & char(4) & Not null & & 所属部门\tabularnewline
+title & char(6) & Not null & & 职称\tabularnewline
+date\_hired & datetime & Not null & & 到职日\tabularnewline
+birthday & datetime & Null & & 生日\tabularnewline
+salary & int & Not null & & 薪水\tabularnewline
+addr & char(50) & null & & 住址\tabularnewline
+\bottomrule
+\end{longtable}
+
+销货明细表sale\_item
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule
+\endhead
+order\_no & int & Not null, & primary key & 订单编号\tabularnewline
+prod\_id & char(5) & Not null, & primary key & 产品编号\tabularnewline
+qty & int & Not null & & 销售数量\tabularnewline
+unit\_price & numeric(7,2) & Not null & & 单价\tabularnewline
+order\_date & datetime & null & & 订单日期\tabularnewline
+\bottomrule
+\end{longtable}
+
+1、写一个允许用户一次只删除一条记录的触发器。
+
+create trigger tr\_emp
+
+on employee for delete as
+
+declare @row\_cnt int
+
+select @row\_cnt=count(*) from deleted
+
+if @row\_cnt\textgreater1
+
+begin
+
+print '此删除操作可能会删除多条人事表数据!!!'
+
+rollback transaction
+
+end
+
+delete from employee
+
+where sex='女' /*结果：所影响的行数为0*/
+
+2、显示女职员的工号，姓名
+
+\begin{quote}
+(1)声明一个游标
+
+语法：DECLARE \textless 游标名\textgreater{} CURSOR FOR
+\textless SELECT语句\textgreater；
+
+(2)打开该游标；
+
+语法：open \textless 游标名\textgreater{}
+
+(3)将该游标的内容提取到变量中；
+
+Fetch \textless 游标名\textgreater{} Into \textless 主变量\textgreater{}
+\end{quote}
+
+declare cur\_emp\_gender scroll cursor for---定义游标
+
+select emp\_no ，emp\_name
+
+from employee
+
+where sex='F'
+
+order by emp\_no
+
+open cur\_emp\_gender---打开游标
+
+declare @no,@name
+
+fetch next from cur\_emp\_gender into @no,@name---读数据到局部变量
+
+while(@@FETCH\_STATUS=0)
+
+begin
+
+select @no,@name
+
+fetch next from cur\_emp\_gender into @no,@namer
+
+end
+
+close cur\_emp\_gender---关闭
+
+deallocate cur\_emp\_gender---释放
+
+\textbf{附录1：实验报告格式与要求}
+
+\begin{longtable}[]{@{}l@{}}
+\toprule
+\endhead
+\begin{minipage}[t]{0.97\columnwidth}\raggedright
+\textbf{封面}
+
+\textbf{《数据库系统SSD7》}
+
+\textbf{实验报告}
+
+专业班级 { }
+
+学 号 { }
+
+姓 名 { }
+
+{}
+
+\textbf{实验成绩：}
+
+\textbf{批阅教师：}
+
+年 月 日\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\textbf{正文要求}
+
+\hypertarget{ux5b9eux9a8c1xxxxxux9879ux76eeux540dux79f0}{%
+\section{实验1《XXXXX（项目名称）》}\label{ux5b9eux9a8c1xxxxxux9879ux76eeux540dux79f0}}
+
+实验学时： { } 实验地点： { } 实验日期： { }
+
+{}
+
+\textbf{一、实验目的}
+
+指出此次实验应该达到的学习目标。
+
+\textbf{二、实验内容}
+
+指出此次实验应完成的任务。
+
+\textbf{三、实验方法与实验步骤}
+
+包括实验方法、原理、技术、方案等。指出完成该实验的操作步骤。
+
+\textbf{四、实验结果}
+
+记录实验输出数据和结果；对实验数据和结果进行分析描述，给出实验取得的成果和结论。
+
+注：有程序的要求附上程序源代码（不能截图），有图表的要有截图并有相应的文字说明和分析
+
+\textbf{五、实验小结}
+
+给出本次实验的体会，如学会了什么，遇到哪些问题，如何解决这些问题，存在哪些有待改进的地方。
+
+\textbf{附录2 SQL Server 2005的使用}
+
+\textbf{0.启动SQL server 服务：在程序菜单上选Sql server 2005 的配置管理}
+
+\includegraphics[width=6.62431in,height=2.57431in]{media/image2.png}
+
+\includegraphics[width=6.49792in,height=4.56111in]{media/image3.png}
+
+1.在程序菜单中启动SQL sever 2005 express
+
+\includegraphics[width=4.74653in,height=2.81528in]{media/image4.png}
+
+2.点击``连接对象资源管理器''按钮，连接服务器（如设置开机就连接的无需做此步）
+
+\includegraphics[width=3.37778in,height=1.67431in]{media/image5.png}
+
+\includegraphics[width=5.53125in,height=3.73958in]{media/image6.png}
+
+3.新建数据库，修改相关参数
+
+\includegraphics[width=5.76667in,height=3.48472in]{media/image7.png}
+
+\includegraphics[width=5.7625in,height=4.67569in]{media/image8.png}
+
+\includegraphics[width=5.775in,height=1.61181in]{media/image9.png}
+
+4.新建表，选定新建的数据库，指向``表''，点右键，``新建表''，输入各列名及类型，在右属性框修改表名。
+
+\includegraphics[width=5.75903in,height=4.31944in]{media/image10.png}\includegraphics[width=5.76736in,height=3.33403in]{media/image11.png}
+
+5.点``新建查询''，在编辑框中输入sql语句，完成建表、查询语句的编辑；点``执行按钮''执行，观察结果。点``存盘''按钮可以对sql脚本存盘。
+
+\includegraphics[width=5.76736in,height=4.22292in]{media/image12.png}
+
+也可通过配置管理器来启动数据库服务器。
+
+\includegraphics[width=5.75903in,height=1.37639in]{media/image13.png}
+
+\includegraphics[width=4.875in,height=1.61597in]{media/image14.png}
+
+T-SQL建立数据库：
+
+\textbf{CREATE DATABASE csu\_tcg}
+
+\textbf{ON PRIMARY}
+
+\textbf{( NAME = 'csu-tcg',}
+
+\textbf{FILENAME
+='e:\textbackslash MSSQL\textbackslash DATA\textbackslash csu-tcg.mdf' ,
+-\/-文件夹要先建好}
+
+\textbf{SIZE = 3072KB , -\/-单位可以M，K}
+
+\textbf{FILEGROWTH = 1024KB )}
+
+\textbf{LOG ON}
+
+\textbf{( NAME = N'csu-tcg\_log',}
+
+\textbf{FILENAME = N'c:\textbackslash Program
+Files\textbackslash Microsoft SQL
+Server\textbackslash MSSQL.1\textbackslash MSSQL\textbackslash DATA\textbackslash csu-tcg\_log.ldf'
+,}
+
+\textbf{SIZE = 1MB ,}
+
+\textbf{FILEGROWTH = 10\%)}
+
+\textbf{GO /*go}为事务提交一段SQL脚本（是隐形事务）的结束标志符。SQL ~
+Server ~ 应用程序可将多条 ~ Transact-SQL ~ 语句作为一个批处理发给 ~ SQL
+~ Server去执行。在此批处理中的语句编译成一个执行计划。程序员在SQL ~
+Server 实用工具中执行特定语句，或生成Transact-SQL 语句脚本在 ~ SQL ~
+Server ~ 实用工具中运行，用 ~ GO ~ 来标识批处理的结束*/
+
+\end{document}
