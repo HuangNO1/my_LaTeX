@@ -196,13 +196,302 @@
 
 \section{實驗內容}
 
+\subsection{在表S，C，SC上完成以下查询}
 
+\begin{itemize}
+    \item 查询学生的基本信息；
+    \item 查询“CS”系学生的基本信息；
+    \item 查询“CS”系学生年龄不在19到21之间的学生的学号、姓名；
+    \item 找出“CS”系年龄最大的学生，显示其学号、姓名；
+    \item 找出各系年龄最大的学生，显示其学号、姓名；
+    \item 统计“CS”系学生的人数；
+    \item 统计各系学生的人数，结果按升序排列；
+    \item 按系统计各系学生的平均年龄，结果按降序排列；
+    \item 查询无先修课的课程的课程名和学时数；
+    \item 统计每位学生选修课程的门数、学分及其平均成绩；
+    \item 统计选修每门课程的学生人数及各门课程的平均成绩；
+    \item 找出平均成绩在85分以上的学生，结果按系分组，并按平均成绩的升序排列；
+    \item 查询选修了“1”或“2”号课程的学生学号和姓名；
+    \item 查询选修了课程名为“数据库系统”且成绩在60分以下的学生的学号、姓名和成绩；
+    \item 查询每位学生选修了课程的学生信息（显示：学号，姓名，课程号，课程名，成绩）；
+    \item 查询没有选修课程的学生的基本信息；
+    \item 查询选修了3门以上课程的学生学号；
+    \item 查询选修课程成绩至少有一门在80分以上的学生学号；
+    \item 查询选修课程成绩均在80分以上的学生学号；
+\end{itemize}
+
+\subsection{在表S、C、SC中完成下列更新}
+
+\begin{itemize}
+    \item 将数据分别插入表S、C、SC；
+    \item 将表S、C、SC中的数据保存在磁盘上。
+    \item 在表S、C、SC上练习数据的插入、修改、删除操作。（比较在表上定义/未定义主码（Primary Key）或外码（Foreign Key）时的情况）
+    \item 将表S、C、SC中的数据全部删除，再利用磁盘上备份的数据来恢复数据。
+    \item 如果要在表SC中插入某个学生的选课信息（如：学号为“2007001005”，课程号为“c123”，成绩待定），应如何进行？
+    \item 求各系学生的平均成绩，并把结果存入数据库；
+    \item 将“CS”系全体学生的成绩置零；
+    \item 删除“CS”系全体学生的选课记录；
+    \item 删除学号为“S1”的相关信息；
+    \item 将学号为“S1”的学生的学号修改为“S001”；
+    \item 把平均成绩大于80分的男同学的学号和平均成绩存入另一个表S——GRADE（SNO，AVG\_GRADE）；
+    \item 把选修了课程名为“数据结构”的学生的成绩提高10%；
+    \item 把选修了“C2”号课程，且成绩低于该门课程的平均成绩的学生成绩删除掉。
+\end{itemize}
 
 \section{實驗方法與實驗步驟}
 
+\subsection{查询}
+
+\begin{itemize}
+    \item 在表Ｓ、Ｃ、ＳＣ上进行简单查询、连接查询、嵌套查询；
+    \item 使用聚合函数的查询、对数据分组查询、对数据的排序查询。
+\end{itemize}
+
+\subsection{插入}
+
+\begin{itemize}
+    \item 用ＳＱＬ命令将数据插入当前数据库的表Ｓ、Ｃ、ＳＣ中；
+    \item 用ＳＱＬ命令形式修改表Ｓ、Ｃ、ＳＣ中的数据；
+    \item 用ＳＱＬ命令形式  删除表Ｓ、Ｃ、ＳＣ中的数据。
+\end{itemize}
+
 \section{實驗結果}
 
+\subsection{查詢}
+
+查詢學生的基本訊息\\
+
+\begin{lstlisting}[language=SQL]
+    select * from S;
+\end{lstlisting}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[查询学生的基本信息]{
+    \includegraphics[width=1\textwidth]{ex2-1.png}}
+\end{figure}
+% ----------------------------------------------------------
+查询“CS”系学生的基本信息\\
+
+\begin{lstlisting}[language=SQL]
+    select * from S where sdept='資訊工程';
+\end{lstlisting}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[查询“CS”系学生的基本信息]{
+    \includegraphics[width=1\textwidth]{ex2-2.png}}
+\end{figure}
+% ----------------------------------------------------------
+查询“CS”系学生年龄不在19到21之间的学生的学号、姓名。\\
+
+\begin{lstlisting}[language=SQL]
+    select Sno, Sname from S where sdept='資訊工程' and Sage not between 19 and 21;
+\end{lstlisting}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[查询“CS”系学生年龄不在19到21之间的学生的学号、姓名]{
+    \includegraphics[width=1\textwidth]{ex2-3.png}}
+\end{figure}
+% ----------------------------------------------------------
+找出“CS”系年龄最大的学生，显示其学号、姓名。
+
+這題有難度
+
+這裡我為了實驗的操作性，將 "CS" 變成"軟件工程"。\\
+
+\begin{lstlisting}[language=SQL]
+    select Sno, Sname from (select max(Sage) as Sage, Sno, Sname from S where sdept='軟件工程');
+\end{lstlisting}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[找出“CS”系年龄最大的学生，显示其学号、姓名]{
+    \includegraphics[width=1\textwidth]{ex2-4.png}}
+\end{figure}
+% ----------------------------------------------------------
+找出各系年龄最大的学生，显示其学号、姓名。\\
+
+\begin{lstlisting}[language=SQL]
+    select Sno, Sname from S as A where Sage = (select max(Sage) from S as B where A.Sdept = B.Sdept);
+\end{lstlisting}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[找出各系年龄最大的学生，显示其学号、姓名]{
+    \includegraphics[width=1\textwidth]{ex2-5.png}}
+\end{figure}
+% ----------------------------------------------------------
+统计“CS”系学生的人数。\\
+
+\begin{lstlisting}[language=SQL]
+    select count(Sdept) from S where Sdept="軟件工程";
+\end{lstlisting}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[统计“CS”系学生的人数]{
+    \includegraphics[width=1\textwidth]{ex2-6.png}}
+\end{figure}
+
+% ----------------------------------------------------------
+统计各系学生的人数，结果按升序排列。\\
+
+\begin{lstlisting}[language=SQL]
+    select Sdept, count(Sdept) as Sum from S group by Sdept order by Sum;
+\end{lstlisting}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[统计各系学生的人数，结果按升序排列]{
+    \includegraphics[width=1\textwidth]{ex2-7.png}}
+\end{figure}
+
+% ----------------------------------------------------------
+按系统计各系学生的平均年龄，结果按降序排列。\\
+
+\begin{lstlisting}[language=SQL]
+    select Sdept, avg(Sage) as Age from S group by Sdept order by Age DESC;
+\end{lstlisting}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[按系统计各系学生的平均年龄，结果按降序排列]{
+    \includegraphics[width=1\textwidth]{ex2-8.png}}
+\end{figure}
+
+% ----------------------------------------------------------
+查询无先修课的课程的课程名和学时数。
+
+因為實驗一的 C Table 我沒添加無先修課的數據，所以在這裡添加了一筆沒有先修課程的數據。\\
+
+\begin{lstlisting}[language=SQL]
+    insert into C(Cno, Cname, Cpno, ccredit) values('rrrrrrrr', '我沒有先修課', null, 100);
+    select Cname, ccredit from C where Cpno is null;
+\end{lstlisting}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[插入一筆數據]{
+    \includegraphics[width=1\textwidth]{ex2-9.png}}
+\end{figure}
+
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[查询无先修课的课程的课程名和学时数]{
+    \includegraphics[width=1\textwidth]{ex2-10.png}}
+\end{figure}
+
+% ----------------------------------------------------------
+统计每位学生选修课程的门数、学分及其平均成绩。\\
+
+\begin{lstlisting}[language=SQL]
+    select Sno, count(Cno), avg(grade) from SC as A where Sno = (select Sno from SC as B where A.Sno = B.Sno)  group by Sno;
+\end{lstlisting}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[统计每位学生选修课程的门数、学分及其平均成绩]{
+    \includegraphics[width=1\textwidth]{ex2-11.png}}
+\end{figure}
+
+% ----------------------------------------------------------
+统计选修每门课程的学生人数及各门课程的平均成绩。\\
+
+\begin{lstlisting}[language=SQL]
+    select Cno, count(Sno), avg(grade) from SC as A where Cno = (select Cno from SC as B where A.Cno = B.Cno)  group by Cno;
+\end{lstlisting}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[统计每位学生选修课程的门数、学分及其平均成绩]{
+    \includegraphics[width=1\textwidth]{ex2-12.png}}
+\end{figure}
+
+% ----------------------------------------------------------
+找出平均成绩在85分以上的学生，结果按系分组，并按平均成绩的升序排列。\\
+
+\begin{lstlisting}[language=SQL]
+    select * from S;
+\end{lstlisting}
+
+
+
+% ----------------------------------------------------------
+查询选修了“1”或“2”号课程的学生学号和姓名。\\
+
+\begin{lstlisting}[language=SQL]
+    select * from S;
+\end{lstlisting}
+
+
+
+% ----------------------------------------------------------
+查询选修了课程名为“数据库系统”且成绩在60分以下的学生的学号、姓名和成绩。\\
+
+\begin{lstlisting}[language=SQL]
+    select * from S;
+\end{lstlisting}
+
+
+
+% ----------------------------------------------------------
+查询每位学生选修了课程的学生信息（显示：学号，姓名，课程号，课程名，成绩）。\\
+
+\begin{lstlisting}[language=SQL]
+    select * from S;
+\end{lstlisting}
+
+
+
+% ----------------------------------------------------------
+查询没有选修课程的学生的基本信息。\\
+
+\begin{lstlisting}[language=SQL]
+    select * from S;
+\end{lstlisting}
+
+
+
+% ----------------------------------------------------------
+查询选修了3门以上课程的学生学号。\\
+
+\begin{lstlisting}[language=SQL]
+    select * from S;
+\end{lstlisting}
+
+
+
+% ----------------------------------------------------------
+查询选修课程成绩至少有一门在80分以上的学生学号。\\
+
+\begin{lstlisting}[language=SQL]
+    select * from S;
+\end{lstlisting}
+
+
+
+% ----------------------------------------------------------
+查询选修课程成绩均在80分以上的学生学号。\\
+
+\begin{lstlisting}[language=SQL]
+    select * from S;
+\end{lstlisting}
+
+
+
+
+
+
+
+
+\subsection{更新}
+
 \section{實驗小結}
+
+
 
 \part{實驗一、數據庫與表的基本操作}
 
