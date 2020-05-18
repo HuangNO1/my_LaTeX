@@ -458,53 +458,102 @@
 查询每位学生选修了课程的学生信息（显示：学号，姓名，课程号，课程名，成绩）。\\
 
 \begin{lstlisting}[language=SQL]
-    select * from S;
+    select SC.Sno, Sname, C.Cno, Cname, grade from SC, S, C where SC.Sno = S.Sno and SC.cno = C.cno;
 \end{lstlisting}
 
-
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[查询每位学生选修了课程的学生信息（显示：学号，姓名，课程号，课程名，成绩）]{
+    \includegraphics[width=1\textwidth]{ex2-16.png}}
+\end{figure}
 
 % ----------------------------------------------------------
 查询没有选修课程的学生的基本信息。\\
 
 \begin{lstlisting}[language=SQL]
-    select * from S;
+    select * from S where S.Sno not in(select SC.Sno from S, SC where SC.Sno = S.Sno);
 \end{lstlisting}
 
-
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[查询没有选修课程的学生的基本信息]{
+    \includegraphics[width=1\textwidth]{ex2-17.png}}
+\end{figure}
 
 % ----------------------------------------------------------
 查询选修了3门以上课程的学生学号。\\
 
 \begin{lstlisting}[language=SQL]
-    select * from S;
+    select Sno from SC group by Sno having count(Cno) > 3;
 \end{lstlisting}
 
-
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[查询选修了3门以上课程的学生学号]{
+    \includegraphics[width=1\textwidth]{ex2-18.png}}
+\end{figure}
 
 % ----------------------------------------------------------
 查询选修课程成绩至少有一门在80分以上的学生学号。\\
 
 \begin{lstlisting}[language=SQL]
-    select * from S;
+    select distinct Sno from SC where grade > 80;
 \end{lstlisting}
 
-
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[查询选修课程成绩至少有一门在80分以上的学生学号]{
+    \includegraphics[width=1\textwidth]{ex2-19.png}}
+\end{figure}
 
 % ----------------------------------------------------------
 查询选修课程成绩均在80分以上的学生学号。\\
 
 \begin{lstlisting}[language=SQL]
-    select * from S;
+    select SC.Sno from SC where SC.grade > 80;
 \end{lstlisting}
 
-
-
-
-
-
-
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[查询选修课程成绩均在80分以上的学生学号]{
+    \includegraphics[width=1\textwidth]{ex2-20.png}}
+\end{figure}
 
 \subsection{更新}
+
+将数据分别插入表S、C、SC；
+
+
+
+% -------------------------------------------------------------------
+将表S、C、SC中的数据保存在磁盘上。
+% -------------------------------------------------------------------
+在表S、C、SC上练习数据的插入、修改、删除操作。（比较在表上定义/未定义主码（Primary Key）或外码（Foreign Key）时的情况）
+% -------------------------------------------------------------------
+将表S、C、SC中的数据全部删除，再利用磁盘上备份的数据来恢复数据。
+% -------------------------------------------------------------------
+如果要在表SC中插入某个学生的选课信息（如：学号为“2007001005”，课程号为“c123”，成绩待定），应如何进行？
+% -------------------------------------------------------------------
+求各系学生的平均成绩，并把结果存入数据库；
+% -------------------------------------------------------------------
+将“CS”系全体学生的成绩置零；
+% -------------------------------------------------------------------
+删除“CS”系全体学生的选课记录；
+% -------------------------------------------------------------------
+删除学号为“S1”的相关信息；
+% -------------------------------------------------------------------
+将学号为“S1”的学生的学号修改为“S001”；
+% -------------------------------------------------------------------
+把平均成绩大于80分的男同学的学号和平均成绩存入另一个表S——GRADE（SNO，AVG\_GRADE）；
+% -------------------------------------------------------------------
+把选修了课程名为“数据结构”的学生的成绩提高10%；
+% -------------------------------------------------------------------
+把选修了“C2”号课程，且成绩低于该门课程的平均成绩的学生成绩删除掉。
+
+
+
+
+
 
 \section{實驗小結}
 
