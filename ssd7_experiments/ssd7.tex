@@ -521,43 +521,199 @@
 
 \subsection{更新}
 
-将数据分别插入表S、C、SC；
+将数据分别插入表S、C、SC。\\
 
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[創建 Table S]{
+    \includegraphics[width=1\textwidth]{ex1-5.png}}
+\end{figure}
 
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[創建 Table C]{
+    \includegraphics[width=1\textwidth]{ex1-6.png}}
+\end{figure}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[創建 Table SC]{
+    \includegraphics[width=1\textwidth]{ex1-7.png}}
+\end{figure}
 
 % -------------------------------------------------------------------
 将表S、C、SC中的数据保存在磁盘上。
-% -------------------------------------------------------------------
-在表S、C、SC上练习数据的插入、修改、删除操作。（比较在表上定义/未定义主码（Primary Key）或外码（Foreign Key）时的情况）
-% -------------------------------------------------------------------
-将表S、C、SC中的数据全部删除，再利用磁盘上备份的数据来恢复数据。
-% -------------------------------------------------------------------
-如果要在表SC中插入某个学生的选课信息（如：学号为“2007001005”，课程号为“c123”，成绩待定），应如何进行？
-% -------------------------------------------------------------------
-求各系学生的平均成绩，并把结果存入数据库；
-% -------------------------------------------------------------------
-将“CS”系全体学生的成绩置零；
-% -------------------------------------------------------------------
-删除“CS”系全体学生的选课记录；
-% -------------------------------------------------------------------
-删除学号为“S1”的相关信息；
-% -------------------------------------------------------------------
-将学号为“S1”的学生的学号修改为“S001”；
-% -------------------------------------------------------------------
-把平均成绩大于80分的男同学的学号和平均成绩存入另一个表S——GRADE（SNO，AVG\_GRADE）；
-% -------------------------------------------------------------------
-把选修了课程名为“数据结构”的学生的成绩提高10%；
-% -------------------------------------------------------------------
-把选修了“C2”号课程，且成绩低于该门课程的平均成绩的学生成绩删除掉。
 
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[匯出 student\_data.sql 文件]{
+    \includegraphics[width=1\textwidth]{ex1-10.png}}
+\end{figure}
 
+% -------------------------------------------------------------------
+在表S、C、SC上练习数据的插入、修改、删除操作。（比较在表上定义/未定义主码（Primary Key）或外码（Foreign Key）时的情况）。\\
 
+\begin{lstlisting}[language=SQL]
+    update S set Sname="阿俊" where Sname="菜月昴";
+\end{lstlisting}
 
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[更新一筆數據]{
+    \includegraphics[width=1\textwidth]{ex2-21.png}}
+\end{figure}
 
+\begin{lstlisting}[language=SQL]
+    alter table S add primary key (Sno);
+\end{lstlisting}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[設主鍵]{
+    \includegraphics[width=1\textwidth]{ex2-22.png}}
+\end{figure}
+
+{設主鍵後，該 Value 不能為 NULL。}\\
+
+% -------------------------------------------------------------------
+将表S、C、SC中的数据全部删除，再利用磁盘上备份的数据来恢复数据。\\
+
+\begin{lstlisting}[language=SQL]
+    drop table C;
+\end{lstlisting}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[刪除某個資料表]{
+    \includegraphics[width=1\textwidth]{ex2-23.png}}
+\end{figure}
+
+\begin{lstlisting}[language=Octave]
+    mysqldump -u root  -p student_data < ~/Study/Code/mySQL/student_data.sql
+\end{lstlisting}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[還原整個 Database]{
+    \includegraphics[width=1\textwidth]{ex2-24.png}}
+\end{figure}
+
+% -------------------------------------------------------------------
+如果要在表SC中插入某个学生的选课信息（如：学号为“2007001005”，课程号为“c123”，成绩待定），应如何进行？\\
+
+\begin{lstlisting}[language=SQL]
+    insert into SC (Sno, Cno, grade) values("2007001005", "c123", NULL);
+\end{lstlisting}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[插入資料]{
+    \includegraphics[width=1\textwidth]{ex2-25.png}}
+\end{figure}
+
+% -------------------------------------------------------------------
+求各系学生的平均成绩，并把结果存入数据库。
+因為我不會一次就搞定的指令，所以只好一個一個輸。\\
+
+\begin{lstlisting}[language=SQL]
+    select avg(grade) from SC;
+    insert SC(Sno, Cno, grade) values("總平均", "-", 90);
+\end{lstlisting}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[將平均成績插入資料]{
+    \includegraphics[width=1\textwidth]{ex2-26.png}}
+\end{figure}
+
+% -------------------------------------------------------------------
+将“CS”系全体学生的成绩置零。\\
+
+\begin{lstlisting}[language=SQL]
+    update SC set grade=0 where Sno in (select SC.Sno from SC, S where SC.Sno=S.Sno and S.sdept="軟件工程");
+\end{lstlisting}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[将“CS”系全体学生的成绩置零]{
+    \includegraphics[width=1\textwidth]{ex2-27.png}}
+\end{figure}
+
+% -------------------------------------------------------------------
+删除“CS”系全体学生的选课记录。\\
+
+\begin{lstlisting}[language=SQL]
+    delete from SC where "軟件工程"=(select sdept from S where S.Sno = SC.Sno);
+\end{lstlisting}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[删除“CS”系全体学生的选课记录]{
+    \includegraphics[width=1\textwidth]{ex2-28.png}}
+\end{figure}
+
+% -------------------------------------------------------------------
+删除学号为“S1”的相关信息。\\
+
+\begin{lstlisting}[language=SQL]
+    delete from S where S.Sno="S1";
+\end{lstlisting}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[删除学号为“S1”的相关信息]{
+    \includegraphics[width=1\textwidth]{ex2-29.png}}
+\end{figure}
+% -------------------------------------------------------------------
+将学号为“S1”的学生的学号修改为“S001”。\\
+
+\begin{lstlisting}[language=SQL]
+    update S set Sno="S001" where Sno="S1";
+\end{lstlisting}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[将学号为“S1”的学生的学号修改为“S001”]{
+    \includegraphics[width=1\textwidth]{ex2-30.png}}
+\end{figure}
+
+% -------------------------------------------------------------------
+把平均成绩大于80分的男同学的学号和平均成绩存入另一个表S——GRADE（SNO，AVG\_GRADE）。
+
+這題...我理解好久:( 最後參考其他同學的。\\
+
+\begin{lstlisting}[language=SQL]
+    INSERT INTO S(Sno, grade)
+    SELECT SC.Sno, AVG(SC.grade) FROM SC,S 
+    WHERE SC.Sno=S.Sno AND S.Ssex='男' 
+    GROUP BY SC.Sno
+    HAVING AVG(SC.grade) > 80;
+\end{lstlisting}
+
+% -------------------------------------------------------------------
+把选修了课程名为“数据结构”的学生的成绩提高10\%。\\
+
+\begin{lstlisting}[language=SQL]
+    UPDATE SC SET Cno=Cno*1.10 
+    WHERE Sno IN(SELECT * FROM SC,C WHERE C.Cname='数据结构' AND SC.Cno=C.Cno);
+\end{lstlisting}
+
+% -------------------------------------------------------------------
+把选修了“C2”号课程，且成绩低于该门课程的平均成绩的学生成绩删除掉。\\
+
+\begin{lstlisting}[language=SQL]
+    delete from SC where grade < (select avg(grade) from SC where SC.Cno="C2");
+\end{lstlisting}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[刪除資料]{
+    \includegraphics[width=1\textwidth]{ex2-31.png}}
+\end{figure}
 
 \section{實驗小結}
 
-
+此次的實驗加強了我的 SQL 掌握能力，有些題目我真的想了許久一錯再錯才寫出正確的答案。這次的實驗內容也相比實驗一多很多，我每題都自己寫出來並寫成 LaTeX，蠻有成就感的。
 
 \part{實驗一、數據庫與表的基本操作}
 
