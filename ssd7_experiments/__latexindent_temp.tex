@@ -9,7 +9,7 @@
 \usepackage[colorlinks,linkcolor=blue]{hyperref} % URL 包
 \usepackage[pdf]{graphviz}
 \usepackage{alphalph}
-\renewcommand*{\thesubfigure}{(\arabic{subfigure})}
+\renewcommand*{\thesubfigure}{(\thefigure.\arabic{subfigure})}
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
@@ -450,7 +450,7 @@
 
 \begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
     \centering % 圖片居中
-    \subfigure[查询选修了课程名为“数据库系统”且成绩在60分以下的学生的学号、姓名和成绩]{
+    \subfigure[查询]{
     \includegraphics[width=1\textwidth]{ex2-15.png}}
 \end{figure}
 
