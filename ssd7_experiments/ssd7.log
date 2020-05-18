@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Arch Linux) (preloaded format=xelatex 2020.5.5)  19 MAY 2020 00:36
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Arch Linux) (preloaded format=xelatex 2020.5.5)  19 MAY 2020 00:48
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1259,37 +1259,42 @@ Overfull \hbox (3.912pt too wide) in paragraph at lines 711--712
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 720.
 
-[41] [42
+
+Overfull \hbox (10.71422pt too wide) in paragraph at lines 741--742
+[]\TU/NotoSerifCJKTC(0)/m/n/12 通 过 视 图 \TU/lmr/m/n/12 V_SSCH\TU/NotoSerifCJKTC(0)/m/n/12 ，|  新 增 加 一 个 学 生 记 录 \TU/lmr/m/n/12 (’S12’,’YAN XI’,19, ’SSCH’)\TU/NotoSerifCJKTC(0)/m/n/12 ，|
+ []
+
+[41] [42] [43
 
 ]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 734.
+(hyperref)                than one, level fixed on input line 759.
 
-[43] [44
+[44] [45
 
 ]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 748.
+(hyperref)                than one, level fixed on input line 773.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 760.
-[45]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 760.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 785.
+[46]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 785.
  (./ssd7.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 760.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 760.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 785.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 785.
 Package rerunfilecheck Info: File `ssd7.out' has not changed.
-(rerunfilecheck)             Checksum: CBB8DAB7D8D386F9C0493991ABD87746.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 760.
+(rerunfilecheck)             Checksum: 57AEC810C29A9F39C0EABF1EFC07D14D.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 785.
  ) 
 Here is how much of TeX's memory you used:
- 26469 strings out of 492483
- 535600 string characters out of 6134980
- 840844 words of memory out of 5000000
- 30686 multiletter control sequences out of 15000+600000
+ 26481 strings out of 492483
+ 536404 string characters out of 6134980
+ 840847 words of memory out of 5000000
+ 30698 multiletter control sequences out of 15000+600000
  536797 words of font info for 81 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 58i,6n,76p,412b,1642s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 58i,6n,76p,435b,1642s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on ssd7.pdf (46 pages).
+Output written on ssd7.pdf (47 pages).
