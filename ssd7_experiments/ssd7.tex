@@ -766,7 +766,7 @@
 \end{figure}
 
 创建学生-课程表SC：
-t
+
 \begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
     \centering % 圖片居中
     \subfigure[课程关系表C]{
@@ -920,7 +920,85 @@ t
     \includegraphics[width=1\textwidth]{ex3-14.png}}
 \end{figure}
 
+\subsection{数据完整性控制}
+
+\subsubsection{創建約束}
+
+1. 定義實體完整性
+
+添加主鍵約束。
+
+發現自己上個實驗就已經設主鍵了。\\
+
+\begin{lstlisting}[language=SQL]
+    alter table S add primary key(Sno);
+\end{lstlisting}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[S 設 primary key]{
+    \includegraphics[width=1\textwidth]{ex3-15.png}}
+\end{figure}
+
+試試網上找到的其他寫法，結果報了 Warning，但還是成功了。\\
+
+\begin{lstlisting}[language=SQL]
+    alter table C add constraint constraint_c primary key(Cno);
+\end{lstlisting}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[C 設 primary key]{
+    \includegraphics[width=1\textwidth]{ex3-16.png}}
+\end{figure}
+
+\begin{lstlisting}[language=SQL]
+    alter table SC add  primary key(Sno, Cno);
+\end{lstlisting}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[SC 設 primary key]{
+    \includegraphics[width=1\textwidth]{ex3-17.png}}
+\end{figure}
+%--------------------------------------------------------
+2. 參照完整性
+
+設置外鍵：\\
+
+\begin{lstlisting}[language=SQL]
+    alter table SC add foreign key(Sno) references S(Sno);
+\end{lstlisting}
+
+因為 SC 有些 Sno 不在父 S 的 Sno 裡所以出現下面第一張圖的錯誤，我將 SC 的資料修一下再次執行就好了。
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[SC 設 foreign key 失敗]{
+    \includegraphics[width=1\textwidth]{ex3-18.png}}
+\end{figure}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[SC 設 foreign key]{
+    \includegraphics[width=1\textwidth]{ex3-19.png}}
+\end{figure}
+
+3. 用戶定義完整性
+
+\begin{lstlisting}[language=SQL]
+    alter table S add check(Sage < 30);
+\end{lstlisting}
+
+\subsubsection{修改約束條件}
+
+\begin{lstlisting}[language=SQL]
+    Alter table S add check(Sno between 100 and 1000);
+\end{lstlisting}
+
 \section{實驗小結}
+
+這次的實驗讓我學會怎麼給數據庫添加 View，還有主鍵和外鍵，最後也讓我時做了約束條件。我覺得真的有學到的感覺，也對數據庫又更深一步的了解。
 
 \part{實驗一、數據庫與表的基本操作}
 
