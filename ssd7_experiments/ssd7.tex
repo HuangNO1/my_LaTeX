@@ -1107,6 +1107,71 @@
 
 \section{實驗結果}
 
+%-----------------------------------------------------
+1. 设置一个触发器，该触发器仅允许“dbo”用户可以删除学生表内数据，否则出错。
+
+\begin{lstlisting}[language=SQL]
+    create trigger dbo_delete
+    on S
+    for delete
+    as
+	if exists (select * from deleted)
+		begin
+			if USER != 'dbo'
+		end
+	delete from S where S.Sno = '1'
+\end{lstlisting}
+
+%-----------------------------------------------------
+2. 针对学生表写一个DELETE触发器，删除数据，测试触发。
+
+\begin{lstlisting}[language=SQL]
+    create trigger S_delete
+    on S
+    for delete
+    as
+	print('DELETE')
+    delete from S where S.Sno = '1'
+\end{lstlisting}
+
+%-----------------------------------------------------
+3. 针对学生表写一个UPDATE触发器，更新数据，测试触发。
+
+\begin{lstlisting}[language=SQL]
+    create trigger S_update
+    on S
+    for delete
+    as
+	print(update)
+    update S set S.sdept = 'CS' where S.Sno = '1'
+\end{lstlisting}
+
+%-----------------------------------------------------
+4. 定义游标，统计学生的平均成绩，输出低于平均分的成绩。
+
+\begin{lstlisting}[language=SQL]
+    declare lowAvg cursor
+    for
+	select SC.grade
+	from SC
+	where SC.grade < (select avg(SC.grade) from SC)
+
+    open lowAvg
+    fetch next
+    from S
+    into @grade
+
+    while @fetch_status=0
+        begin
+	    	print(@grade)
+            fetch next from lowAvg into @grade
+        end
+    close lowAvg
+    deallocate lowAvg
+\end{lstlisting}
+
 \section{實驗小結}
+
+這次的實驗繞我學到了游標和觸發器，我也在網上看了關於這方面的語法，觸發器是為了觸發某個動作的機制，游標是在存儲過程的瀏覽。因為之前寫項目都沒接觸到這部份，這次讓我親自體驗這之中的意思。果然親自動手做實驗能讓人對這方面的知識更清晰。
 
 \end{document}
