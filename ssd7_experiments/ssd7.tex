@@ -1000,29 +1000,110 @@
 
 這次的實驗讓我學會怎麼給數據庫添加 View，還有主鍵和外鍵，最後也讓我時做了約束條件。我覺得真的有學到的感覺，也對數據庫又更深一步的了解。
 
-\part{實驗一、數據庫與表的基本操作}
+\part{實驗四、存儲過程}
 
 \section{實驗目的}
 
-
+理解存储过程的概念、建立和调用方法。进一步熟悉SQL语句对数据库进行完整性控制的方法。
 
 \section{實驗內容}
 
+\begin{itemize}
+    \item 利用存储过程查找自己的学号、选修课程及成绩。
+    \item 利用存储过程查找姓“李”并且性别为“M”的学生学号、选修课程。
+    \item 利用存储过程计算某同学（学号作为存储过程的参数）所选课程的平均分。
+\end{itemize}
+
 \section{實驗方法與實驗步驟}
+
+\begin{itemize}
+    \item 设计查找自己的学号、选修课程及成绩的存储过程，以自己的学号作为参数，调用存储过程。
+    \item 设计存储过程查找姓“李”并且性别为“M”的学生学号、选修课程并调用。
+    \item 设计存储过程计算某同学（学号作为存储过程的参数）所选课程的平均分并调用。
+\end{itemize}
 
 \section{實驗結果}
 
+1. 设计查找自己的学号、选修课程及成绩的存储过程，以自己的学号作为参数，调用存储过程。
+
+建立 Procedure。\\
+
+\begin{lstlisting}[language=SQL]
+    delimiter //  
+    create procedure studentSearch(in inputSno int)  
+    begin
+    select S.sno, S.sname, SC.cno from S, SC where inputSno=S.sno and SC.sno=inputSno; 
+    END//  
+    delimiter;
+\end{lstlisting}
+
+設定參數並運行。\\
+
+\begin{lstlisting}[language=SQL]
+    set @inputSno = 1;
+    call studentSearch(@inputSno);
+\end{lstlisting}
+
+2. 设计存储过程查找姓“李”并且性别为“M”的学生学号、选修课程并调用。
+
+\begin{lstlisting}[language=SQL]
+    delimiter //  
+    create procedure search_lee()
+    begin
+    select S.sno, SC.cno, SC.grade from S, SC where S.sname Like '李%'; 
+    end//  
+    delimiter;
+
+    call search_lee();
+\end{lstlisting}
+
+3. 设计存储过程计算某同学（学号作为存储过程的参数）所选课程的平均分并调用。
+
+建立 Procedure。\\
+
+\begin{lstlisting}[language=SQL]
+    delimiter //  
+    create procedure search_avg(in inputSno int)
+    begin    
+    select S.sno,avg(SC.grade) from S,SC where S.sno=inputSno and SC.sno=inputSno;
+    end//  
+    delimiter;
+\end{lstlisting}
+
+設定參數並運行。\\
+
+\begin{lstlisting}[language=SQL]
+    SET @inputSno=1;
+    call searchavg(@inputSno);
+\end{lstlisting}
+
 \section{實驗小結}
 
-\part{實驗一、數據庫與表的基本操作}
+因為我是使用 MySQL 做實驗所以這次的實驗一開始使用了 SQL 的語法，結果發現運行錯誤，到網上搜索了一下才發現 Store Procedure 上 MySQL 與 SQL 不一樣，最後改成了正確的 MySQL 語法。
+
+\part{實驗五、觸發器游標}
 
 \section{實驗目的}
 
-
+进一步熟悉SQL语句对数据库进行完整性控制的方法；理解触发器的概念、定义方法和触发条件。理解游标的定义、打开、使用、关闭与释放的方法。
 
 \section{實驗內容}
 
+\begin{itemize}
+    \item 设置一个触发器，该触发器仅允许“dbo”用户可以删除学生表内数据。
+    \item 针对学生表写一个DELETE触发器。
+    \item 针对学生表写一个UPDATE触发器。
+    \item 统计学生的平均成绩，输出低于平均分的成绩（使用游标）。
+\end{itemize}
+
 \section{實驗方法與實驗步驟}
+
+\begin{itemize}
+    \item 设置一个触发器，该触发器仅允许“dbo”用户可以删除学生表内数据，否则出错。
+    \item 针对学生表写一个DELETE触发器，删除数据，测试触发。
+    \item 针对学生表写一个UPDATE触发器，更新数据，测试触发。
+    \item 定义游标，统计学生的平均成绩，输出低于平均分的成绩。
+\end{itemize}
 
 \section{實驗結果}
 
