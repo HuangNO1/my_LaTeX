@@ -261,7 +261,7 @@
 
 \subsection{查詢}
 
-查詢學生的基本訊息\\
+1. 查詢學生的基本訊息\\
 
 \begin{lstlisting}[language=SQL]
     select * from S;
@@ -273,7 +273,7 @@
     \includegraphics[width=1\textwidth]{ex2-1.png}}
 \end{figure}
 % ----------------------------------------------------------
-查询“CS”系学生的基本信息\\
+2. 查询“CS”系学生的基本信息\\
 
 \begin{lstlisting}[language=SQL]
     select * from S where sdept='資訊工程';
@@ -285,7 +285,7 @@
     \includegraphics[width=1\textwidth]{ex2-2.png}}
 \end{figure}
 % ----------------------------------------------------------
-查询“CS”系学生年龄不在19到21之间的学生的学号、姓名。\\
+3. 查询“CS”系学生年龄不在19到21之间的学生的学号、姓名。\\
 
 \begin{lstlisting}[language=SQL]
     select Sno, Sname from S where sdept='資訊工程' and Sage not between 19 and 21;
@@ -297,7 +297,7 @@
     \includegraphics[width=1\textwidth]{ex2-3.png}}
 \end{figure}
 % ----------------------------------------------------------
-找出“CS”系年龄最大的学生，显示其学号、姓名。
+4. 找出“CS”系年龄最大的学生，显示其学号、姓名。
 
 這題有難度
 
@@ -313,7 +313,7 @@
     \includegraphics[width=1\textwidth]{ex2-4.png}}
 \end{figure}
 % ----------------------------------------------------------
-找出各系年龄最大的学生，显示其学号、姓名。\\
+5. 找出各系年龄最大的学生，显示其学号、姓名。\\
 
 \begin{lstlisting}[language=SQL]
     select Sno, Sname from S as A where Sage = (select max(Sage) from S as B where A.Sdept = B.Sdept);
@@ -325,7 +325,7 @@
     \includegraphics[width=1\textwidth]{ex2-5.png}}
 \end{figure}
 % ----------------------------------------------------------
-统计“CS”系学生的人数。\\
+6. 统计“CS”系学生的人数。\\
 
 \begin{lstlisting}[language=SQL]
     select count(Sdept) from S where Sdept="軟件工程";
@@ -338,7 +338,7 @@
 \end{figure}
 
 % ----------------------------------------------------------
-统计各系学生的人数，结果按升序排列。\\
+7. 统计各系学生的人数，结果按升序排列。\\
 
 \begin{lstlisting}[language=SQL]
     select Sdept, count(Sdept) as Sum from S group by Sdept order by Sum;
@@ -351,7 +351,7 @@
 \end{figure}
 
 % ----------------------------------------------------------
-按系统计各系学生的平均年龄，结果按降序排列。\\
+8. 按系统计各系学生的平均年龄，结果按降序排列。\\
 
 \begin{lstlisting}[language=SQL]
     select Sdept, avg(Sage) as Age from S group by Sdept order by Age DESC;
@@ -364,7 +364,7 @@
 \end{figure}
 
 % ----------------------------------------------------------
-查询无先修课的课程的课程名和学时数。
+9. 查询无先修课的课程的课程名和学时数。
 
 因為實驗一的 C Table 我沒添加無先修課的數據，所以在這裡添加了一筆沒有先修課程的數據。\\
 
@@ -387,7 +387,7 @@
 \end{figure}
 
 % ----------------------------------------------------------
-统计每位学生选修课程的门数、学分及其平均成绩。\\
+10. 统计每位学生选修课程的门数、学分及其平均成绩。\\
 
 \begin{lstlisting}[language=SQL]
     select Sno, count(Cno), avg(grade) from SC as A where Sno = (select Sno from SC as B where A.Sno = B.Sno)  group by Sno;
@@ -400,7 +400,7 @@
 \end{figure}
 
 % ----------------------------------------------------------
-统计选修每门课程的学生人数及各门课程的平均成绩。\\
+11. 统计选修每门课程的学生人数及各门课程的平均成绩。\\
 
 \begin{lstlisting}[language=SQL]
     select Cno, count(Sno), avg(grade) from SC as A where Cno = (select Cno from SC as B where A.Cno = B.Cno)  group by Cno;
@@ -413,7 +413,7 @@
 \end{figure}
 
 % ----------------------------------------------------------
-找出平均成绩在85分以上的学生，结果按系分组，并按平均成绩的升序排列。\\
+12. 找出平均成绩在85分以上的学生，结果按系分组，并按平均成绩的升序排列。\\
 
 \begin{lstlisting}[language=SQL]
     select S.Sno, S.sdept, AVG(SC.grade) from SC, S where SC.Sno = S.Sno group by S.Sno, S.sdept having avg(SC.grade) > 85 order by AVG(SC.grade) ASC;
@@ -426,7 +426,7 @@
 \end{figure}
 
 % ----------------------------------------------------------
-查询选修了“1”或“2”号课程的学生学号和姓名。
+13. 查询选修了“1”或“2”号课程的学生学号和姓名。
 
 我在這裡因為沒有 "1" 和 "2" 的課程，所以改成數據庫有的。\\
 
@@ -442,7 +442,7 @@
 \end{figure}
 
 % ----------------------------------------------------------
-查询选修了课程名为“数据库系统”且成绩在60分以下的学生的学号、姓名和成绩。\\
+14. 查询选修了课程名为“数据库系统”且成绩在60分以下的学生的学号、姓名和成绩。\\
 
 \begin{lstlisting}[language=SQL]
     select SC.Sno, Sname, grade from SC, S, C where SC.sno = S.Sno and SC.Cno = C.Cno and Cname = 'SSD7' and grade < 60;
@@ -455,7 +455,7 @@
 \end{figure}
 
 % ----------------------------------------------------------
-查询每位学生选修了课程的学生信息（显示：学号，姓名，课程号，课程名，成绩）。\\
+15. 查询每位学生选修了课程的学生信息（显示：学号，姓名，课程号，课程名，成绩）。\\
 
 \begin{lstlisting}[language=SQL]
     select SC.Sno, Sname, C.Cno, Cname, grade from SC, S, C where SC.Sno = S.Sno and SC.cno = C.cno;
@@ -468,7 +468,7 @@
 \end{figure}
 
 % ----------------------------------------------------------
-查询没有选修课程的学生的基本信息。\\
+16. 查询没有选修课程的学生的基本信息。\\
 
 \begin{lstlisting}[language=SQL]
     select * from S where S.Sno not in(select SC.Sno from S, SC where SC.Sno = S.Sno);
@@ -481,7 +481,7 @@
 \end{figure}
 
 % ----------------------------------------------------------
-查询选修了3门以上课程的学生学号。\\
+17. 查询选修了3门以上课程的学生学号。\\
 
 \begin{lstlisting}[language=SQL]
     select Sno from SC group by Sno having count(Cno) > 3;
@@ -494,7 +494,7 @@
 \end{figure}
 
 % ----------------------------------------------------------
-查询选修课程成绩至少有一门在80分以上的学生学号。\\
+18. 查询选修课程成绩至少有一门在80分以上的学生学号。\\
 
 \begin{lstlisting}[language=SQL]
     select distinct Sno from SC where grade > 80;
@@ -507,7 +507,7 @@
 \end{figure}
 
 % ----------------------------------------------------------
-查询选修课程成绩均在80分以上的学生学号。\\
+19. 查询选修课程成绩均在80分以上的学生学号。\\
 
 \begin{lstlisting}[language=SQL]
     select SC.Sno from SC where SC.grade > 80;
@@ -521,7 +521,7 @@
 
 \subsection{更新}
 
-将数据分别插入表S、C、SC。\\
+1. 将数据分别插入表S、C、SC。\\
 
 \begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
     \centering % 圖片居中
@@ -542,7 +542,7 @@
 \end{figure}
 
 % -------------------------------------------------------------------
-将表S、C、SC中的数据保存在磁盘上。
+2. 将表S、C、SC中的数据保存在磁盘上。
 
 \begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
     \centering % 圖片居中
@@ -551,7 +551,7 @@
 \end{figure}
 
 % -------------------------------------------------------------------
-在表S、C、SC上练习数据的插入、修改、删除操作。（比较在表上定义/未定义主码（Primary Key）或外码（Foreign Key）时的情况）。\\
+3. 在表S、C、SC上练习数据的插入、修改、删除操作。（比较在表上定义/未定义主码（Primary Key）或外码（Foreign Key）时的情况）。\\
 
 \begin{lstlisting}[language=SQL]
     update S set Sname="阿俊" where Sname="菜月昴";
@@ -576,7 +576,7 @@
 {設主鍵後，該 Value 不能為 NULL。}\\
 
 % -------------------------------------------------------------------
-将表S、C、SC中的数据全部删除，再利用磁盘上备份的数据来恢复数据。\\
+4. 将表S、C、SC中的数据全部删除，再利用磁盘上备份的数据来恢复数据。\\
 
 \begin{lstlisting}[language=SQL]
     drop table C;
@@ -599,7 +599,7 @@
 \end{figure}
 
 % -------------------------------------------------------------------
-如果要在表SC中插入某个学生的选课信息（如：学号为“2007001005”，课程号为“c123”，成绩待定），应如何进行？\\
+5. 如果要在表SC中插入某个学生的选课信息（如：学号为“2007001005”，课程号为“c123”，成绩待定），应如何进行？\\
 
 \begin{lstlisting}[language=SQL]
     insert into SC (Sno, Cno, grade) values("2007001005", "c123", NULL);
@@ -612,7 +612,7 @@
 \end{figure}
 
 % -------------------------------------------------------------------
-求各系学生的平均成绩，并把结果存入数据库。
+6. 求各系学生的平均成绩，并把结果存入数据库。
 因為我不會一次就搞定的指令，所以只好一個一個輸。\\
 
 \begin{lstlisting}[language=SQL]
@@ -627,7 +627,7 @@
 \end{figure}
 
 % -------------------------------------------------------------------
-将“CS”系全体学生的成绩置零。\\
+7. 将“CS”系全体学生的成绩置零。\\
 
 \begin{lstlisting}[language=SQL]
     update SC set grade=0 where Sno in (select SC.Sno from SC, S where SC.Sno=S.Sno and S.sdept="軟件工程");
@@ -640,7 +640,7 @@
 \end{figure}
 
 % -------------------------------------------------------------------
-删除“CS”系全体学生的选课记录。\\
+8. 删除“CS”系全体学生的选课记录。\\
 
 \begin{lstlisting}[language=SQL]
     delete from SC where "軟件工程"=(select sdept from S where S.Sno = SC.Sno);
@@ -653,7 +653,7 @@
 \end{figure}
 
 % -------------------------------------------------------------------
-删除学号为“S1”的相关信息。\\
+9. 删除学号为“S1”的相关信息。\\
 
 \begin{lstlisting}[language=SQL]
     delete from S where S.Sno="S1";
@@ -665,7 +665,7 @@
     \includegraphics[width=1\textwidth]{ex2-29.png}}
 \end{figure}
 % -------------------------------------------------------------------
-将学号为“S1”的学生的学号修改为“S001”。\\
+10. 将学号为“S1”的学生的学号修改为“S001”。\\
 
 \begin{lstlisting}[language=SQL]
     update S set Sno="S001" where Sno="S1";
@@ -678,7 +678,7 @@
 \end{figure}
 
 % -------------------------------------------------------------------
-把平均成绩大于80分的男同学的学号和平均成绩存入另一个表S——GRADE（SNO，AVG\_GRADE）。
+11. 把平均成绩大于80分的男同学的学号和平均成绩存入另一个表S——GRADE（SNO，AVG\_GRADE）。
 
 這題...我理解好久:( 最後參考其他同學的。\\
 
@@ -691,7 +691,7 @@
 \end{lstlisting}
 
 % -------------------------------------------------------------------
-把选修了课程名为“数据结构”的学生的成绩提高10\%。\\
+12. 把选修了课程名为“数据结构”的学生的成绩提高10\%。\\
 
 \begin{lstlisting}[language=SQL]
     UPDATE SC SET Cno=Cno*1.10 
@@ -699,7 +699,7 @@
 \end{lstlisting}
 
 % -------------------------------------------------------------------
-把选修了“C2”号课程，且成绩低于该门课程的平均成绩的学生成绩删除掉。\\
+13. 把选修了“C2”号课程，且成绩低于该门课程的平均成绩的学生成绩删除掉。\\
 
 \begin{lstlisting}[language=SQL]
     delete from SC where grade < (select avg(grade) from SC where SC.Cno="C2");
@@ -749,11 +749,176 @@
 
 2. 修改S中的约束条件，学号在100－1000之间。
 
-学生关系表S ：
+学生关系表 S：
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[学生关系表S]{
+    \includegraphics[width=1\textwidth]{ex3-1.png}}
+\end{figure}
+
+创建课程关系表 C：
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[课程关系表C]{
+    \includegraphics[width=0.75\textwidth]{ex3-2.png}}
+\end{figure}
+
+创建学生-课程表SC：
+t
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[课程关系表C]{
+    \includegraphics[width=0.75\textwidth]{ex3-3.png}}
+\end{figure}
+
+3．用实验验证当操作违反了完整性约束时，系统如何处理？
+
+问题：外键与参照主键是否一定要相同？
 
 \section{實驗方法與實驗步驟}
 
+\begin{itemize}
+    \item 定义视图、对视图进行查询、修改。
+    \item 进行完整性约束定义、修改。
+    \item 进行约束违例验证。
+\end{itemize}
+
 \section{實驗結果}
+
+\subsection{View 的基本操作}
+
+1. 定义“SSCH”院学生基本情况视图V\_SSCH。\\
+
+\begin{lstlisting}[language=SQL]
+    create view V_SSCH as select * from S where S.sdept = "SSCH";
+\end{lstlisting}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[創建 V\_SSCH]{
+    \includegraphics[width=1\textwidth]{ex3-4.png}}
+\end{figure}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[插入新數據]{
+    \includegraphics[width=0.75\textwidth]{ex3-5.png}}
+\end{figure}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[查看 View]{
+    \includegraphics[width=1\textwidth]{ex3-6.png}}
+\end{figure}
+
+%----------------------------------------------------------------------------
+2. 将S，C，SC表中学生的学号，姓名，课程号，课程名，成绩定义为视图V\_S\_C\_G。\\
+
+\begin{lstlisting}[language=SQL]
+    create or replace view V_S_C_G as select S.Sno, S.Sname, C.Cno, C.Cname, SC.grade from S, C, SC where S.Sno = SC.Sno and C.Cno = SC.Cno;
+\end{lstlisting}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[V\_S\_C\_G]{
+    \includegraphics[width=1\textwidth]{ex3-7.png}}
+\end{figure}
+
+{因為發現自己調建設錯了，所以重新更新一次。}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[修改 View]{
+    \includegraphics[width=1\textwidth]{ex3-8.png}}
+\end{figure}
+
+%----------------------------------------------------------------------------
+3. 将各院学生人数，平均年龄定义为视图V\_NUM\_AVG。\\
+
+\begin{lstlisting}[language=SQL]
+    create view V_NUM_AVG as select S.sdept, count(S.Sno), avg(S.Sage) from S group by S.sdept;
+\end{lstlisting}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[V\_NUM\_AVG]{
+    \includegraphics[width=1\textwidth]{ex3-9.png}}
+\end{figure}
+
+%----------------------------------------------------------------------------
+4. 将各位学生选修课程的门数及平均成绩定义为视图V\_AVG\_S\_G并查询结果。\\
+
+\begin{lstlisting}[language=SQL]
+    create view V_AVG_S_G
+    as
+    select count(SC.Sno), avg(SC.grade) from SC, C
+    where SC.Cno = C.Cno
+    group by SC.Sno;
+\end{lstlisting}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[V\_AVG\_S\_G]{
+    \includegraphics[width=1\textwidth]{ex3-10.png}}
+\end{figure}
+
+%----------------------------------------------------------------------------
+5. 查询平均成绩为90分以上的学生学号、姓名和成绩。\\
+
+\begin{lstlisting}[language=SQL]
+    select SC.Sno, S.Sname, SC.grade from SC, S where S.Sno = SC.Sno in (select SC.Sno from SC group by SC.Sno having avg(SC.grade) > 90);
+\end{lstlisting}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[查詢]{
+    \includegraphics[width=1\textwidth]{ex3-11.png}}
+\end{figure}
+
+%----------------------------------------------------------------------------
+6. 通过视图V\_SSCH，新增加一个学生记录 ('S12','YAN XI',19, 'SSCH')，并查询结果。\\
+
+\begin{lstlisting}[language=SQL]
+    insert into V_SSCH(Sno, Sname, Sage, Sdept) values("S12", "YAN XI", 19, "SSCH");
+    select * from V_SSCH where Sno="S12";
+\end{lstlisting}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[新增數據到 V\_SSCH]{
+    \includegraphics[width=1\textwidth]{ex3-12.png}}
+\end{figure}
+
+%----------------------------------------------------------------------------
+7. 通过视图V\_SSCH，删除学号为“S12”学生信息，并查询结果。\\
+
+\begin{lstlisting}[language=SQL]
+    delete from V_SSCH where Sno="S12";
+    select * from V_SSCH;
+\end{lstlisting}
+
+這裡我不小心輸錯了，重輸一遍。
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[從 V\_SSCH 刪除一筆數據]{
+    \includegraphics[width=1\textwidth]{ex3-13.png}}
+\end{figure}
+
+%----------------------------------------------------------------------------
+8. 将视图V\_SSCH中学号为“S12”的学生改名“中南人”。\\
+
+\begin{lstlisting}[language=SQL]
+    update V_SSCH set Sno="中南人" where Sno="S12";
+\end{lstlisting}
+
+\begin{figure}[H] % H 為當前位置，!htb 為忽略美學標準，htbp 為浮動圖片
+    \centering % 圖片居中
+    \subfigure[從 V\_SSCH 更新一筆數據]{
+    \includegraphics[width=1\textwidth]{ex3-14.png}}
+\end{figure}
 
 \section{實驗小結}
 
