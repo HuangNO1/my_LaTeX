@@ -1,0 +1,73 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{ctex} % 中文的宏包
+\usepackage{indentfirst}
+\usepackage{graphicx} % 插入圖片的宏包
+\usepackage{float} % 設置圖片浮動位置的宏包
+\usepackage{subfigure} % 插入多圖時用子圖顯示宏包
+\usepackage{listings} % 代碼塊宏包
+\usepackage{color} % 代碼高亮
+\usepackage[colorlinks,linkcolor=blue]{hyperref} % URL 包
+\usepackage[pdf]{graphviz}
+\usepackage{alphalph}
+\renewcommand*{\thesubfigure}{(\arabic{subfigure})}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+    %language=Octave,                % the language of the code
+    basicstyle=\scriptsize\Hack,           % the size of the fonts that are used for the code
+    numbers=none,                   % where to put the line-numbers
+    numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
+    stepnumber=2,                   % the step between two line-numbers. If it's 1, each line 
+                                    % will be numbered
+    numbersep=3pt,                  % how far the line-numbers are from the code
+    backgroundcolor=\color{white},      % choose the background color. You must add \usepackage{color}
+    showspaces=false,               % show spaces adding particular underscores
+    showstringspaces=false,         % underline spaces within strings
+    showtabs=false,                 % show tabs within strings adding particular underscores
+    frame=single,                   % adds a frame around the code
+    rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+    tabsize=2,                      % sets default tabsize to 2 spaces
+    captionpos=b,                   % sets the caption-position to bottom
+    breaklines=true,                % sets automatic line breaking
+    breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+    title=\lstname,                   % show the filename of files included with \lstinputlisting;
+                                    % also try caption instead of title
+    keywordstyle=\color{blue},          % keyword style
+    commentstyle=\color{dkgreen},       % comment style
+    stringstyle=\color{mauve},         % string literal style
+    escapeinside={\%*}{*},            % if you want to add LaTeX within your code
+    morekeywords={*,...}               % if you want to add more keywords to the set
+}
+\setCJKmainfont{Noto Serif CJK TC} % 主要字體 Noto Serif
+\newfontfamily\Hack{Hack} % 代碼字體
+\author{黃柏曛}
+\date{\today}
+\title{基于机器学习的软件缺陷预测}
+\begin{document}
+
+\maketitle
+
+\section{摘要}
+
+随着虚拟仪器软件系统规模逐渐扩大,其复杂程度也逐渐提高,对于缺陷容忍度较低的高风险软件来说发生故障导致的后果很严重,虚拟仪器软件的性能面临严峻的考验。[1]软件缺陷预测是软件工程领域中与软件质量保证密切相关的重要的研究课题,它对提高软件系统质量和优化测试资源分配都有重要意义。在软件工程数据挖掘领域中,基于机器学习的静态软件缺陷预测根据软件历史仓库数据,采用缺陷相关的度量对软件代码或开发过程进行分析,利用机器学习方法来预测软件项目中待测试程序模块的缺陷倾向性或缺陷数量。[2]
+
+\section{關鍵字}
+
+\section{前言}
+
+\section{正文}
+
+\section{結論}
+
+\section{參考文獻}
+
+[1]曾路,汪浩.基于机器学习的虚拟仪器软件缺陷预测模型研究[J].自动化与仪器仪表,2020(05):59-62.
+
+[2]张志武.基于机器学习的软件缺陷预测方法研究.2018.
+
+[3]Metric-based software reliability prediction approach and its application[J] . Ying Shi,Ming Li,Steven Arndt,Carol Smidts.  Empirical Software Engineering . 2017 (4) 
+
+\end{document}
