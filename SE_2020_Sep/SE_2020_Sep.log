@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/Arch Linux) (preloaded format=xelatex 2020.8.26)  5 OCT 2020 00:08
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/Arch Linux) (preloaded format=xelatex 2020.8.26)  5 OCT 2020 23:39
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -527,13 +527,18 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 52.
  [1
 
-] [2]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 81.
- [3]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 81.
+] [2] [3] [4] [5] [6] [7] [8] [9]
+Overfull \hbox (1.74788pt too wide) in paragraph at lines 226--227
+[]\TU/lmr/m/n/12 [21]Song Q, Jia Z, Shepperd M, et al. A general software defect-proneness
+ []
+
+[10] [11] [12]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 294.
+ [13]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 294.
  (./SE_2020_Sep.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 81.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 81.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 294.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 294.
 
 
 Package rerunfilecheck Warning: File `SE_2020_Sep.out' has changed.
@@ -541,17 +546,17 @@ Package rerunfilecheck Warning: File `SE_2020_Sep.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `SE_2020_Sep.out':
-(rerunfilecheck)             Before: BEA3F7715C3D5FBE5F504783C74DF1C7;451
-(rerunfilecheck)             After:  27A2B9F84E971DD779777A00D7109D7E;467.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 81.
+(rerunfilecheck)             Before: A47A484A06C2145A6B7D2AAC0A0B58BD;1131
+(rerunfilecheck)             After:  70156D2C75643B13E5C847539CD5B70F;1224.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 294.
  ) 
 Here is how much of TeX's memory you used:
- 15299 strings out of 479284
- 318693 string characters out of 5886220
- 615842 words of memory out of 5000000
- 32724 multiletter control sequences out of 15000+600000
+ 15362 strings out of 479284
+ 322995 string characters out of 5886220
+ 621495 words of memory out of 5000000
+ 32787 multiletter control sequences out of 15000+600000
  533891 words of font info for 63 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 58i,6n,83p,882b,324s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 58i,6n,83p,414b,324s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on SE_2020_Sep.pdf (3 pages).
+Output written on SE_2020_Sep.pdf (13 pages).
