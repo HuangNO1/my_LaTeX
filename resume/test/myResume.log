@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/Arch Linux) (preloaded format=xelatex 2021.3.13)  14 MAR 2021 10:03
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/Arch Linux) (preloaded format=xelatex 2021.3.13)  14 MAR 2021 10:11
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
-**/home/rem/Study/Code/LaTeX/resume/myResume/myResume.tex
-(/home/rem/Study/Code/LaTeX/resume/myResume/myResume.tex
+**/home/rem/Study/Code/LaTeX/resume/test/myResume.tex
+(/home/rem/Study/Code/LaTeX/resume/test/myResume.tex
 LaTeX2e <2020-10-01> patch level 2
 L3 programming layer <2020-12-03> xparse <2020-03-03> (/usr/share/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
@@ -814,8 +814,6 @@ LaTeX Info: Redefining \nameref on input line 91.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-File: avatar.jpg Graphic file (type bmp)
-<avatar.jpg>
 File: certeral_south_university_logo.jpeg Graphic file (type bmp)
 <certeral_south_university_logo.jpeg>
 
@@ -880,12 +878,12 @@ Package rerunfilecheck Info: File `myResume.out' has not changed.
 (rerunfilecheck)             Checksum: 0C108CA2375438551429EF054A730019;867.
  ) 
 Here is how much of TeX's memory you used:
- 28026 strings out of 477299
- 568101 string characters out of 5838338
+ 28011 strings out of 477299
+ 567843 string characters out of 5838338
  917326 words of memory out of 5000000
- 47140 multiletter control sequences out of 15000+600000
- 406830 words of font info for 75 fonts, out of 8000000 for 9000
+ 47126 multiletter control sequences out of 15000+600000
+ 406822 words of font info for 74 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 97i,5n,100p,701b,538s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 97i,5n,100p,697b,538s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on myResume.pdf (2 pages).
