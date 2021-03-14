@@ -13,6 +13,38 @@
 %%%% 利用tikz来定位照片和学校Logo
 \usepackage{tikz}
 \usetikzlibrary{calc}
+\renewcommand{\baselinestretch}{1.2} %定义行间距1.2
+\usepackage{titlesec}
+\usepackage{enumitem}
+% disable indent globally
+\setlength{\parindent}{0pt}
+% some general improvements, defines the XeTeX logo
+\usepackage{xltxtra}
+% use hyperlink for email and url
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+\usepackage{url}
+\urlstyle{tt}
+
+% use fontawesome
+% \newfontfamily\fontawesome[
+%     Path=./
+% ]{FontAwesome.otf}
+\usepackage{fontawesome5}
+\usepackage{xparse}
+
+\setlist{noitemsep} % removes spacing from items but leaves space around the whole list
+%\setlist{nosep} % removes all vertical spacing within and around the list
+\setlist[itemize]{topsep=0.25em, leftmargin=*}
+\setlist[enumerate]{topsep=0.25em, leftmargin=*}
+
+\titleformat{\section}         % Customise the \section command 
+  {\large\bfseries\raggedright} % Make the \section headers large (\Large),
+                               % small capitals (\scshape) and left aligned (\raggedright)
+  {}{0em}                      % Can be used to give a prefix to all sections, like 'Section ...'
+  {}                           % Can be used to insert code before the heading
+  [{\color{CVBlue}\titlerule}]                 % Inserts a horizontal line after the heading
+\titlespacing*{\section}{0cm}{*1.6}{*1.2}
 
 \usepackage[
 	a4paper,
@@ -55,12 +87,121 @@
 \setCJKmainfont{Noto Serif CJK TC} % 主要字體 Noto Serif
 \definecolor{CVBlue}{RGB}{23,110,191}
 \newfontfamily\Hack{Hack} % 代碼字體
-\author{軟件 1804 8209180438 黃柏曛}
-\date{\today}
-\title{數據庫系統 SSD7 實驗報告}
+
 \begin{document}
+% \pagenumbering{gobble} % suppress displaying page number
 
-\tableofcontents
+%%%% 利用tikz来定位照片，部分招聘单位可能需要“以貌取人”
+\begin{tikzpicture}[remember picture, overlay] 
+  \node[anchor = north east] at ($(current page.north east)+(-1cm,-1.2cm)$) {\includegraphics[height=2.5cm]{avatar}};
+\end{tikzpicture}%
+%%%% 利用tikz来定位学校Logo，这里只在第一页显示，如果需要每页都有，可以考虑在页眉、页脚或者background中加入，不过简历也就一两页，无所谓了
+\begin{tikzpicture}[remember picture, overlay] 
+  \node[anchor = north west] at ($(current page.north west)+(0.2cm,-0.2cm)$) {\includegraphics[height=2cm]{certeral_south_university_logo}};
+\end{tikzpicture}%
+%%%% 利用tikz来定位页脚栏，电子版简历使用，黑白纸质打印效果可能并不好。这里只在第一页显示，如果需要每页都有，页脚或者background中加入。
+% \begin{tikzpicture}[remember picture, overlay] 
+%   \node[anchor = south,fill=CVBlue,draw=none,minimum width=\paperwidth ,minimum height=1.5em ,align=center ,font=\footnotesize ,text=white] at ($(current page.south)$) {\faLinkedinSquare https://www.linkedin.com/in/username \qquad \faGithub https://github.com/HuangNO1 \qquad \faRssSquare http://huangno1.github.io/};
+% \end{tikzpicture}%
+%tikzpicture环境很敏感，注释周围的空格、空行都会引起水平距离或垂直距离的变化，
+%
 
+\centerline{\LARGE\bfseries{黃柏曛}}
+
+\centerline{\normalsize{2022應屆生，研究方向：Web 應用開發、桌面應用開發、操作系統}}
+
+\centerline{\normalsize{\faPhone\ 186-7312-1200 \quad \faEnvelope\ \href{qqmail:2116280484@qq.com}{2116280484@qq.com}}}
+
+% \section{\makebox[\faGraduationCap][c]{\color{CVBlue}\faGraduationCap}\  教育背景}
+
+\section{\color{CVBlue}\faGraduationCap\  教育背景}
+
+\textbf{中南大學} \hfill 2018-09 $\sim$ 2022-06
+
+計算機學院 \quad 軟件工程 \quad 本科生
+
+\section{\color{CVBlue}\faCogs\ IT 技能}
+% increase linespacing [parsep=0.5ex]
+\begin{itemize}[parsep=0.5ex]
+  \item 編程語言： C/C++, Java, Python, Golang, JavaScript.
+  \item 平台： ArchLinux.
+  \item 開發： Front end design, Vue, React, Angular, Qt, Flask, SpringBoot, Markdown, LaTeX, MySQL etc.
+  \item 已修專業課程： 计算机程序设计基础（C++）、信息系统基础 SSD1、数据结构、离散结构、Java 面向对象程序设计SSD3、计算机图形学、用户界面设计与评价SSD4、Web应用开发技术、操作系统原理、算法分析与设计、数字电子技术、汇编语言程序设计、编译原理、计算机网络原理、软件开发架构平台、软件工程基础、数据库系统SSD7、科学计算与数学建模、软件体系结构、电子商务应用、云计算及应用、软件测试技术、软件需求工程。
+  \item 已加入實驗室： 生物醫學基因工程與數據挖掘實驗室，教授：鄧磊。
+\end{itemize}
+
+\section{\color{CVBlue}\faUsers\ 項目經歷}
+
+\textbf{基於深度學習的智能健康助手 (Kotlin、Tenserflow、Flask)} \hfill 2019-03 $\sim$ 2020-03
+
+项目角色： \quad 隊長
+
+主要职责与业绩： \quad 此為大學生創新創業項目，我負責分配隊員的工作與項目進度調度、前端App開發、深度學習模型訓練，最後獲得校級評定，與``我最喜歡的展示作品''獎項。
+
+\textbf{仿 QQ 通訊軟件 (Qt C++、Golang、Gorilla WebSocket)} \hfill 2019-07 $\sim$ 2019-08
+
+项目角色： \quad 個人開發
+
+主要职责与业绩： \quad 此為暑假於中山實訓項目，我負責前端 Qt 桌面應用開發、後端基於 Golang 的 webSocket 通信協議開發，最終完成作品。
+
+\textbf{基於 JSP 技術實現寵物商店網站 (JSP、Tomcat、MySQL、JQuery)} \hfill 2019-09 $\sim$ 2019-12
+
+项目角色： \quad 隊長
+
+主要职责与业绩： \quad 此為學校課程小組項目，我負責隊伍工作調度、前端開發、數據庫設計、整體項目監控，完成作品，獲老師佳評。
+
+\textbf{動畫網站 (VueJS、Django)} \hfill 2019-10 $\sim$ 2019-12
+
+项目角色： \quad 技術開發人員
+
+主要职责与业绩： \quad 此為我與一位室友合作開發的項目，他負責後端的數據爬取與接口設計，我負責前端開發與對接，最終完成項目。
+
+\textbf{基於微空運輸的移植器官運輸路徑規劃系統 (VueJS、Flask)} \hfill 2020-01 $\sim$ 2020-10
+
+项目角色： \quad 技術開發人員
+
+主要职责与业绩： \quad 我負責前端頁面開發、後端開發、前後端對接，這是交通院的交通科技大賽與大學生創新創業項目，最終獲得交科賽獲校級一等獎，原被推薦進國賽，後面遺憾沒進國賽；大創獲得省級項目評定。
+
+\textbf{基於前後端完全分離實現寵物商店 (VueJS、SpringBoot、MySQL)} \hfill 2020-03 $\sim$ 2020-06
+
+项目角色： \quad 隊長
+
+主要职责与业绩： \quad 此為學校課程小組項目，我負責隊伍工作調度、前端頁面開發、前後端接口對接、數據庫設計、整體項目監控，完成作品，獲老師佳評。
+
+\textbf{個人空間系統 (VueJS、SpringBoot、Flask、MySQL)} \hfill 2020-07 $\sim$ 2020-08
+
+项目角色： \quad 技術開發人員
+
+主要职责与业绩： \quad 此為暑假實訓項目，我負責前端頁面開發、前後端接口對接、接口初步討論設計，最終獲得暑假實訓項目個人評優。
+
+\textbf{``微圾分''工作室構建環保服務電商平台 (WeChat App)} \hfill 2021-02 $\sim$ 現在
+
+项目角色： \quad 技術開發人員
+
+主要职责与业绩： \quad 此為商學院的全國大學生電子商務“創新、創意及創業”挑戰賽(三創賽)項目、大學生創新創業項目、互聯網+項目，我負責前端微信小程序開發、後端開發、前後端對接，目前正在開發階段。
+
+\section{\color{CVBlue}\faHeart\ 獲獎情况}
+
+\textbf{交通科技大賽 \quad 校級一等獎} \hfill 2020-01
+
+獲獎情況： \quad 這次的項目原本是被推進國賽的，但是很遺憾項目文檔不夠吸引評委，止步於校級一等獎，但是這次的比賽對我來說的成長意義很大，在參加這次比賽之前，我之前參加的學校比賽都沒到這麼高的獎項經驗。
+
+\textbf{2019 年度台灣、港澳及華僑學生獎學金 \quad 三等獎} \hfill 2019-12
+
+獲獎情況： \quad 因為我是台灣的學生，大學以前也都是在台灣學習與成長，但依然沒放棄努力，積極學習，並且參加各式各樣的比賽，我也經常與陸生合作，我很榮幸我能拿到獎學金來支持我的個人學術方面研究與學習，我幫助很多對於軟件工程專業內編程不佳的同學學習，我會繼續努力深造自己。
+
+\section{\color{CVBlue}\faAtlassian\ 個人小結}
+
+本人在中南大學從 2018 入學至 2020 大三第二學期期間參加了兩次大學生創新創業項目，我也參加了中南大學交通院的 2020 交通科技大賽、服務外包大賽與軟件創新大賽，都對我的成長意義重大。我的個人參與的開發項目可以查看我的 Github (ID: HuangNO1)，我的 Github 中不乏我平常練習的內容，也入門了 AngularJS、ReactJS 前端技術開發。之前也為了比賽學了快應用，目前我正在學習微信小程序開發。我在 Github Page 利用 Hugo 打造自己的靜態頁面 Blog。在 Blog 中我不僅分享了我的開發經驗幫助別人進行學習，也讓自己能夠溫故知新，我自己平常是使用 ArchLinux 的 Linux 系統進行開發工作，所以 Blog 中的文章有些相關的內容，其中光是 Blog 的編寫就讓我熟悉 Git 版本控制和 Markdown 語言。目前我還有關於機器學習與深度學習的文章正在編寫，以自己的角度與語言重新解釋 ML 與 DL 這些技術的學習，幫助小白入門。最後，我已經在 2020 大三第一學期加入了教授的實驗室，並在實驗室中學習，教授是專門研究生物基因序列與數據挖掘，實驗室每天中午有技術會議與論文拜讀，我很高興有這樣的機會讓我進入實驗室和師兄師姐們學習，也很慶幸我自己在中南大學學到了很多。 
+
+\section{\color{CVBlue}\faInfo\ 其它}
+% increase linespacing [parsep=0.5ex]
+\begin{itemize}[parsep=0.5ex]
+  \item Blog: http://huangno1.github.io/
+  \item GitHub: https://github.com/HuangNO1
+  \item QQ：2116280484
+  \item Telegram：@HuangNO1
+  \item E-mail：2116280484@qq.com
+\end{itemize}
 
 \end{document}
