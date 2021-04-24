@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/Arch Linux) (preloaded format=xelatex 2021.3.13)  14 MAR 2021 10:11
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/Arch Linux) (preloaded format=xelatex 2021.3.13)  16 MAR 2021 20:05
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
-**/home/rem/Study/Code/LaTeX/resume/test/myResume.tex
-(/home/rem/Study/Code/LaTeX/resume/test/myResume.tex
+**/home/rem/Study/Code/LaTeX/resume/chanhowjeResume/chanhowjeResume.tex
+(/home/rem/Study/Code/LaTeX/resume/chanhowjeResume/chanhowjeResume.tex
 LaTeX2e <2020-10-01> patch level 2
 L3 programming layer <2020-12-03> xparse <2020-03-03> (/usr/share/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
@@ -683,7 +683,7 @@ Package fontspec Info: Font family 'Hack(0)' created for font 'Hack' with
 (fontspec)             <->"Hack/BI/OT:script=latn;language=dflt;"
 (fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
 
-(./myResume.aux)
+(./chanhowjeResume.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
 LaTeX Font Info:    ... okay on input line 91.
 LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 91.
@@ -777,7 +777,7 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 91.
 LaTeX Info: Redefining \pageref on input line 91.
 LaTeX Info: Redefining \nameref on input line 91.
- (./myResume.out) (./myResume.out)
+ (./chanhowjeResume.out) (./chanhowjeResume.out)
 \@outlinefile=\write4
 
 *geometry* driver: auto-detecting
@@ -789,11 +789,11 @@ LaTeX Info: Redefining \nameref on input line 91.
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
 * h-part:(L,W,R)=(34.14322pt, 529.22144pt, 34.14322pt)
-* v-part:(T,H,B)=(42.67912pt, 773.91498pt, 28.45274pt)
+* v-part:(T,H,B)=(42.67912pt, 768.2245pt, 34.14322pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
 * \textwidth=529.22144pt
-* \textheight=773.91498pt
+* \textheight=768.2245pt
 * \oddsidemargin=-38.12677pt
 * \evensidemargin=-38.12677pt
 * \topmargin=-29.59087pt
@@ -814,6 +814,8 @@ LaTeX Info: Redefining \nameref on input line 91.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+File: avatar.jpg Graphic file (type bmp)
+<avatar.jpg>
 File: certeral_south_university_logo.jpeg Graphic file (type bmp)
 <certeral_south_university_logo.jpeg>
 
@@ -832,58 +834,46 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 119.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 123.
+(hyperref)                removing `\@ifnextchar' on input line 127.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\faPreselectedIcon' on input line 123.
+(hyperref)                removing `\faPreselectedIcon' on input line 127.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 133.
+(hyperref)                removing `\@ifnextchar' on input line 137.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\faPreselectedIcon' on input line 133.
+(hyperref)                removing `\faPreselectedIcon' on input line 137.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 158.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\faPreselectedIcon' on input line 158.
+
+
+Overfull \hbox (1.58376pt too wide) in paragraph at lines 160--161
+[]\TU/NotoSerifCJKTC(0)/m/n/12 我 在 大 学 期 间 认 真 学 习 计 算 机 相 关 技 术，|  除 了 基 础 课 程 知 识 外，|  我 还 自 主 学 习 了 前 端 \TU/lmr/m/n/12 React \TU/NotoSerifCJKTC(0)/m/n/12 与 \TU/lmr/m/n/12 JQuery
+ []
 
 [1
 
-]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 183.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\faPreselectedIcon' on input line 183.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 193.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\faPreselectedIcon' on input line 193.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 197.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\faPreselectedIcon' on input line 197.
-
-[2] (./myResume.aux)
-Package rerunfilecheck Info: File `myResume.out' has not changed.
-(rerunfilecheck)             Checksum: 0C108CA2375438551429EF054A730019;867.
+] (./chanhowjeResume.aux)
+Package rerunfilecheck Info: File `chanhowjeResume.out' has not changed.
+(rerunfilecheck)             Checksum: 7287808086B0AD0393E4169D3EAB8CCE;612.
  ) 
 Here is how much of TeX's memory you used:
- 28011 strings out of 477299
- 567843 string characters out of 5838338
- 917326 words of memory out of 5000000
- 47126 multiletter control sequences out of 15000+600000
- 406822 words of font info for 74 fonts, out of 8000000 for 9000
+ 27991 strings out of 477299
+ 565954 string characters out of 5838338
+ 913065 words of memory out of 5000000
+ 47107 multiletter control sequences out of 15000+600000
+ 406830 words of font info for 75 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 97i,5n,100p,697b,538s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 97i,5n,100p,476b,538s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on myResume.pdf (2 pages).
+Output written on chanhowjeResume.pdf (1 page).

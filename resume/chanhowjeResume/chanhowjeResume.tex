@@ -1,0 +1,162 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{ctex} % 中文的宏包
+\usepackage{indentfirst}
+\usepackage{graphicx} % 插入图片的宏包
+\usepackage{float} % 设置图片浮动位置的宏包
+\usepackage{subfigure} % 插入多图时用子图显示宏包
+\usepackage{listings} % 代码块宏包
+\usepackage{color} % 代码高亮
+\usepackage[colorlinks,linkcolor=blue]{hyperref} % URL 包
+\usepackage[pdf]{graphviz}
+\usepackage{alphalph}
+\renewcommand*{\thesubfigure}{(\arabic{subfigure})}
+%%%% 利用tikz来定位照片和学校Logo
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\renewcommand{\baselinestretch}{1.2} %定义行间距1.2
+\usepackage{titlesec}
+\usepackage{enumitem}
+% disable indent globally
+\setlength{\parindent}{0pt}
+% some general improvements, defines the XeTeX logo
+\usepackage{xltxtra}
+% use hyperlink for email and url
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+\usepackage{url}
+\urlstyle{tt}
+
+% use fontawesome
+% \newfontfamily\fontawesome[
+%     Path=./
+% ]{FontAwesome.otf}
+\usepackage{fontawesome5}
+\usepackage{xparse}
+
+\setlist{noitemsep} % removes spacing from items but leaves space around the whole list
+%\setlist{nosep} % removes all vertical spacing within and around the list
+\setlist[itemize]{topsep=0.25em, leftmargin=*}
+\setlist[enumerate]{topsep=0.25em, leftmargin=*}
+
+\titleformat{\section}         % Customise the \section command 
+  {\large\bfseries\raggedright} % Make the \section headers large (\Large),
+                               % small capitals (\scshape) and left aligned (\raggedright)
+  {}{0em}                      % Can be used to give a prefix to all sections, like 'Section ...'
+  {}                           % Can be used to insert code before the heading
+  [{\color{CVBlue}\titlerule}]                 % Inserts a horizontal line after the heading
+\titlespacing*{\section}{0cm}{*1.6}{*1.2}
+
+\usepackage[
+	a4paper,
+	left=1.2cm,
+	right=1.2cm,
+	top=1.5cm,
+	bottom=1.2cm,
+	nohead
+]{geometry}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+    %language=Octave,                % the language of the code
+    basicstyle=\scriptsize\Hack,           % the size of the fonts that are used for the code
+    numbers=none,                   % where to put the line-numbers
+    numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
+    stepnumber=2,                   % the step between two line-numbers. If it's 1, each line 
+                                    % will be numbered
+    numbersep=3pt,                  % how far the line-numbers are from the code
+    backgroundcolor=\color{white},      % choose the background color. You must add \usepackage{color}
+    showspaces=false,               % show spaces adding particular underscores
+    showstringspaces=false,         % underline spaces within strings
+    showtabs=false,                 % show tabs within strings adding particular underscores
+    frame=single,                   % adds a frame around the code
+    rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+    tabsize=2,                      % sets default tabsize to 2 spaces
+    captionpos=b,                   % sets the caption-position to bottom
+    breaklines=true,                % sets automatic line breaking
+    breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+    title=\lstname,                   % show the filename of files included with \lstinputlisting;
+                                    % also try caption instead of title
+    keywordstyle=\color{blue},          % keyword style
+    commentstyle=\color{dkgreen},       % comment style
+    stringstyle=\color{mauve},         % string literal style
+    escapeinside={\%*}{*},            % if you want to add LaTeX within your code
+    morekeywords={*,...}               % if you want to add more keywords to the set
+}
+\setCJKmainfont{Noto Serif CJK TC} % 主要字体 Noto Serif
+\definecolor{CVBlue}{RGB}{23,110,191}
+\newfontfamily\Hack{Hack} % 代码字体
+
+\begin{document}
+% \pagenumbering{gobble} % suppress displaying page number
+
+%%%% 利用tikz来定位照片，部分招聘单位可能需要“以貌取人”
+\begin{tikzpicture}[remember picture, overlay] 
+  \node[anchor = north east] at ($(current page.north east)+(-1cm,-1.2cm)$) {\includegraphics[height=2.5cm]{avatar}};
+\end{tikzpicture}%
+%%%% 利用tikz来定位学校Logo，这里只在第一页显示，如果需要每页都有，可以考虑在页眉、页脚或者background中加入，不过简历也就一两页，无所谓了
+\begin{tikzpicture}[remember picture, overlay] 
+  \node[anchor = north west] at ($(current page.north west)+(0.2cm,-0.2cm)$) {\includegraphics[height=2cm]{certeral_south_university_logo}};
+\end{tikzpicture}%
+%%%% 利用tikz来定位页脚栏，电子版简历使用，黑白纸质打印效果可能并不好。这里只在第一页显示，如果需要每页都有，页脚或者background中加入。
+% \begin{tikzpicture}[remember picture, overlay] 
+%   \node[anchor = south,fill=CVBlue,draw=none,minimum width=\paperwidth ,minimum height=1.5em ,align=center ,font=\footnotesize ,text=white] at ($(current page.south)$) {\faLinkedinSquare https://www.linkedin.com/in/username \qquad \faGithub https://github.com/HuangNO1 \qquad \faRssSquare http://huangno1.github.io/};
+% \end{tikzpicture}%
+%tikzpicture环境很敏感，注释周围的空格、空行都会引起水平距离或垂直距离的变化，
+%
+
+\centerline{\LARGE\bfseries{陈浩杰}}
+
+\centerline{\normalsize{2022应届生，研究方向：前端技术应用开发}}
+
+\centerline{\normalsize{\faPhone\ 183-7495-9321 \quad \faEnvelope\ \href{qqmail:1411307268@qq.com}{1411307268@qq.com}}}
+
+% \section{\makebox[\faGraduationCap][c]{\color{CVBlue}\faGraduationCap}\  教育背景}
+
+\section{\color{CVBlue}\faGraduationCap\  教育背景}
+
+\textbf{中南大学} \hfill 2018-09 $\sim$ 2022-06
+
+计算机学院 \quad 软件工程 \quad 本科生
+
+\textbf{主修课程}
+
+Web 应用开发技术、软件开发架构平台。
+
+\section{\color{CVBlue}\faCogs\ 技术背景}
+% increase linespacing [parsep=0.5ex]
+\begin{itemize}[parsep=0.5ex]
+  \item 编程语言： C++, Java, Python, VB.net, JavaScript.
+  \item 开发： JQuery, React, Spring, Markdown, MySQL etc.
+  \item 已修专业课程： 计算机程序设计基础（C++）、信息系统基础 SSD1、数据结构、离散结构、Java 面向对象程序设计 SSD3、计算机图形学、用户界面设计与评价 SSD4、Web应用开发技术、操作系统原理、算法分析与设计、数字电子技术、汇编语言程序设计、编译原理、计算机网络原理、软件开发架构平台、软件工程基础、数据库系统SSD7、科学计算与数学建模、软件体系结构、电子商务应用、云计算及应用、软件测试技术、软件需求工程、大型数据库技术。
+  \item GPA：3.3。
+  \item 证书： 英语 CET-6，能流畅阅读与理解英语技术文档。
+\end{itemize}
+
+\section{\color{CVBlue}\faUsers\ 项目经历}
+
+\textbf{微信小程序 - 食堂智能推荐菜单 (WeChat App、E-Charts)}
+
+项目角色： 队长
+
+主要职责与业绩： 本项目为大学生创新创业项目，项目目的是为了实现食堂菜单的智能推荐，我在其中负责了微信小程序的前端开发工作，项目中使用 E-charts 框架将数据可视化图形界面，以及 CRUD 基础功能实现，最终获得国家级项目评定。
+
+\textbf{僵尸企业识别平台 (JQuery、E-Chart、Spring)}
+
+项目角色： 队长
+
+主要职责与业绩： 本项目为中国大学生服务外包创新创业大赛项目，是基于机器学习对僵尸企业识别与交互式的 Web 应用开发，我在项目中负责构建了前端 Web 开发，前端使用了 JQuery 与 Ajax 请求技术，并基于 FormData 实现文件传输。
+
+\textbf{宠物商店 (JavaScript、Thymeleaf、SpringBoot、MySQL)}
+
+项目角色： 队长
+
+主要职责与业绩： 本项目是计算机学院软件工程软件开架构平台课程项目，我负责前端与后端的全栈开发，前端使用 JavaScript 与 Thymeleaf 模板引擎开发前端页面，后端则使用 SpringBoot 框架，数据库使用 MySQL。
+
+
+\section{\color{CVBlue}\faAtlassian\ 个人总结}
+
+我在大学期间认真学习计算机相关技术，除了基础课程知识外，我还自主学习了前端 React 与 JQuery 框架技术，并使用 Spring 进行后端开发完成各个项目开发，对于 B/S 与 C/S 风格软件开发有所了解，我会继续加强自己的前端技术开发，也希望能在未来的实习与职场获得更多成长。
+
+\end{document}
