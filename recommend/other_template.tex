@@ -1,0 +1,228 @@
+\documentclass[classical]{einfart}
+\usepackage{ProjLib}
+\usepackage{hologo}
+\usepackage{graphicx} %插入图片的宏包
+\usepackage{float} %设置图片浮动位置的宏包
+\usepackage{subfigure} %插入多图时用子图显示的宏包
+\usepackage{hyperref}
+\setCJKmainfont{Noto Serif CJK TC} % 主要字體 Noto Serif
+%%================================
+%% Titles
+%%================================
+\let\LevelOneTitle\section
+\let\LevelTwoTitle\subsection
+\let\LevelThreeTitle\subsubsection
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\begin{document}
+
+\setcounter{tocdepth}{2}
+{\setstretch{1.07}\tableofcontents}
+
+\newpage
+
+\part{個人能力}
+
+\section{教育背景}
+\textbf{中南大學 \quad 長沙 \quad 中國} \hfill 2018-09 $\sim$ 2021-02
+
+計算機學院 \quad 軟件工程 \quad 肄業生
+
+\textbf{中興大學 \quad 台中 \quad 台灣} \hfill 2021-02 $\sim$ 2023-06
+
+電機系 \quad 在讀生
+
+
+\section{技術背景}
+
+\begin{itemize}[parsep=0.5ex]
+  \item My github:\url{https://github.com/lumusen0305}
+  \item 编程语言： $Python >= Verilog >= Java  >= VueJs >= C++ >=  Golang >= C\# == R$.
+  \item 平台： ArchLinux.
+  \item 開發： Vue,  Qt, Flask, SpringBoot, Markdown, LaTeX, Verilog, MySQL etc.
+  \item 主修專業課程： 計算機程序設計基礎（C++）、數據結構、Web應用開發技術、算法分析與設計、計算機網絡原理、軟件開發架構平台、數據庫系統SSD7、軟件體系結構、工程數學、電子學、電路學、電磁學、VLSI、類比電路設計。
+  \item 專題： AI Meeting，教授：范志鵬 教授。
+  \item 曾加入實驗室： 飛控實驗室，教授：戴訓華 副教授。
+\end{itemize}
+
+\section{學習成果}
+\begin{itemize}[parsep=0.5ex]
+  \item GPA  \quad 4.26/4.3 \hfill 入學 $\sim$ 大三下
+  \item 中興電機歷年班排  \quad 1/46 \hfill 入學 $\sim$ 大三下
+  \item 中興電機歷年系排  \quad 1/93 \hfill 入學 $\sim$ 大三下
+\end{itemize}
+
+\section{擔任職務}
+
+\textbf{中南大學軟件工程 \quad 副年級長} \hfill 2018-09 $\sim$ 2021-02
+
+\textbf{中南大學 \quad 程序部-部員} \hfill 2018-09 $\sim$ 2019-09
+
+\textbf{中南大學 \quad 心助會鐵道分會-部員} \hfill 2018-09 $\sim$ 2019-09
+\section{獲獎情况}
+
+\textbf{2019 年度台灣、港澳及華僑學生獎學金 \quad 一等獎} \hfill 2019-12
+
+\textbf{Robocode \quad 校级二等獎} \hfill 2018-11
+\begin{figure}[H]
+  \centering  %图片全局居中
+  \subfigure{
+  \label{Fig.sub.1}
+  \includegraphics[angle=90,scale=0.2]{Robocode.jpg}
+  }
+  \caption{Robocode獎狀}
+  \label{Fig.main}
+\end{figure}
+
+
+
+\textbf{QST青軟實訓 \quad A} \hfill  2020-11
+\begin{figure}[H]
+  \centering  %图片全局居中
+  \subfigure{
+    \label{Fig.sub.1}
+    \includegraphics[angle=90,scale=0.2]{Qt.jpg}
+    }
+    \caption{Qt實訓證明}
+    \label{Fig.main}
+  \end{figure}
+  
+  
+  \textbf{中南大學 \quad 肄業證書} \hfill 2021-02
+  \begin{figure}[H]
+    \centering  %图片全局居中
+    \subfigure{
+      \label{Fig.sub.1}
+  \includegraphics[scale=0.56]{肄業證書.png}
+  }
+  \caption{中南大學肄業證書}
+  \label{Fig.main}
+\end{figure}
+
+\textbf{大二下 \quad 中興電機書卷獎} \hfill 2021-12
+\begin{figure}[H]
+  \centering  %图片全局居中
+  \subfigure{
+  \label{Fig.sub.1}
+  \includegraphics[scale=0.62]{2下.jpg}
+  }
+  \caption{書卷獎}
+  \label{Fig.main}
+\end{figure}
+
+\textbf{大三上 \quad 中興電機書卷獎} \hfill 2022-7
+
+\begin{figure}[H]
+  \centering  %图片全局居中
+  \subfigure{
+  \label{Fig.sub.1}
+  \includegraphics[scale=0.62]{3上.jpg}
+  }
+  \caption{書卷獎}
+  \label{Fig.main}
+\end{figure}
+
+\part{項目經驗}
+
+\section{中興大學時期}
+
+\subsection{智能家居 AI Meeting}
+
+此項目為中興電機的專題，我主要負責前後端整合以及開發、硬件對接、AI 模型運用以及對接，詳情
+請參考 Github。
+
+\subsection{OpenMIPS CPU （項目學習，非原創）}
+
+此項目為大三下暑假的學習項目，為了提昇 Verilog 水平，我跟著” 自己動手寫 CPU” 學習 CPU 的
+設計流程，項目因為硬體需求止步於教學版。
+
+\subsection{Connect6 （項目修改，非原創）}
+
+這個項目是我在 Youtube 上看到的教學，他有一系列的課程，包含DNN 跟 sobel，我跟著教程一步一步的做出這個項目，並且結合上課內容添加了雙人對打模式。效果如下：
+\begin{figure}[H]
+    \centering  %图片全局居中
+    \subfigure[User1 Win]{
+    \label{Fig.sub.1}
+    \includegraphics[width=0.45\textwidth]{connect6_1.jpg}}
+    \subfigure[User2 Win]{
+    \label{Fig.sub.2}
+    \includegraphics[width=0.45\textwidth]{connect6_2.jpg}}
+    \caption{玩家獲勝演示}
+    \label{Fig.main}
+\end{figure}
+
+
+教學網址：\url{https://www.youtube.com/watch?v=KGsFbbbc0sI}
+
+\subsection{新海誠風格變換}
+
+這個功能是我用CycleGAN 加上3部新海誠的電影訓練出來的，雖然操作很簡單，但是我對訓練結果非常滿意就放上來了。
+\begin{figure}[H]
+    \centering  %图片全局居中
+    \subfigure[原圖]{
+    \label{Fig.sub.1}
+    \includegraphics[width=0.3\textwidth]{IMG_20201204_223844.jpg}}
+    \subfigure[風格變化圖]{
+    \label{Fig.sub.2}
+    \includegraphics[width=0.3\textwidth]{IMG_20201204_223844.png}}
+    \caption{風格變換演示}
+    \label{Fig.main}
+\end{figure}
+模型網址：\url{https://github.com/eriklindernoren/PyTorch-GAN}
+\subsection{漫畫閱讀器 RHeart}
+
+市面上很多漫畫網站都有廣告以及收費，我運用爬蟲以及 Flask 做出基本的 api 搭配 vue 前端來去除
+廣告，有時間會用 kotlin 開發手機客戶端。
+
+\section{中南大學時期}
+
+\subsection{軟件創新創業比賽—智能酒保}
+此為學校軟件創新創業校級參賽作品，利用 Pytorch 做表情識別，以及 Fer2013 作為訓練樣本，並用
+Flask 作為後端，最後雖然沒得獎但是對於 AI 有稍微的接觸也算是種收穫。
+
+\begin{figure}[H]
+    \centering  %图片全局居中
+    \subfigure[檢測圖]{
+    \label{Fig.sub.1}
+    \includegraphics[width=0.35\textwidth]{my_face.jpg}}
+    \subfigure[檢測結果]{
+    \label{Fig.sub.2}
+    \includegraphics[width=0.54\textwidth]{my_face_result.png}}
+    \caption{判斷模塊演示}
+    \label{Fig.main}
+\end{figure}
+
+\subsection{Golang聊天室}
+
+基於golang-websocket實現的線上聊天室,是我目前比較滿意的項目
+\subsection{JPetStore重構}
+
+基於SpringBoot製作的寵物商店,因為是第一次使用前後端交互成品較為粗造
+\subsection{JPetStore}
+
+使用JSP跟後端邏輯去構造的，並非前後端分離,年代已久沒有push到github
+\subsection{Unity2D（項目學習，非原創）}
+
+這是我參考 Brackeys的教學 做出來的類似馬力歐的小遊戲，但是只做了一關。也是我第一次接觸C＃。使用遊戲引擎開發遊戲真的比Qt方便很多。
+
+教學網址：\url{https://www.youtube.com/c/Brackeys}
+\subsection{JavaFX模擬CPU進程調度}
+
+本項目我是用JAVAFX製作GUI並且用JAVAFX的插件”jfoenix”實現練表功能，jfoenix中有一個GUI叫ListView他的概念跟練表相同，所以我將數值放到listView中用以實現CPU調度並將其可視化。
+\begin{figure}[H]
+    \centering  %图片全局居中
+    \subfigure{
+    \label{Fig.sub.1}
+    \includegraphics[width=0.7\textwidth]{OS.png}}
+    \caption{成果展示}
+    \label{Fig.main}
+\end{figure}
+\subsection{寢室監控系統}
+
+基於Flask、websocket實現的寢室監控系統,使用Heroku架設
+
+
+\end{document}
+

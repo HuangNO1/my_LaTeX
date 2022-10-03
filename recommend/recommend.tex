@@ -1,0 +1,186 @@
+\documentclass[classical]{einfart}
+\usepackage{ProjLib}
+\usepackage{hologo}
+\usepackage{graphicx} %插入图片的宏包
+\usepackage{float} %设置图片浮动位置的宏包
+\usepackage{subfigure} %插入多图时用子图显示的宏包
+\usepackage{hyperref}
+\setCJKmainfont{Noto Serif CJK TC} % 主要字體 Noto Serif
+\renewcommand{\baselinestretch}{1.2} %定义行间距1.2
+%%================================
+%% Titles
+%%================================
+\let\LevelOneTitle\section
+\let\LevelTwoTitle\subsection
+\let\LevelThreeTitle\subsubsection
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\begin{document}
+
+\section{自傳}
+
+\subsection{基本背景}
+
+我是黃柏曛，從小在臺北長大，高中畢業於\textbf{臺北市立中正高中}，
+高中畢業後由於家庭原因，母親是中國湖南人，中南大學又剛好在湖南
+，在家人的堅持下，我選擇前往大陸唸書，
+大學畢業於\textbf{中國中南大學計算機學院的軟件工程科系}，
+\textbf{中南大學(985 211)中國2022排名19、QS2023排名499、THE2022排名301}
+，已獲得中南大學的畢業證書與學士學位證書。
+目前回台灣想要繼續攻讀碩士學位。
+
+\subsection{培芽探索}
+
+我正在唸中正高中的時候有幸參加電腦老師開設的資訊程式的選修課程，
+一次的好奇與試探，卻對寫程式產生興趣
+，隨後我一直利用課後時間與電腦老師交流
+，並利用寶貴的中休時間親自跑到電腦教室學習程式的編寫。
+很幸運地那年剛好是\textbf{台灣師範大學開放高中生的C語言程式選修}的探索時間，
+電腦老師鼓勵我們學生一起去選修課程，
+也是在這次機緣下認識了蔣教授，教授的課程作業讓我成長了很多，包括在編寫程式的思維方式：
+先思考如何用最笨的方式AC，再進一步去減少時間複雜度與空間複雜度，讓程式更有效運行。
+
+我也在台師大選修程式語言的這段期間初次入門參加了APCS考試，很可惜我當時只拿了7段，
+但我還是很感謝這段經歷，我也因此確定了未來方向：資訊工程。
+
+\subsection{扎實基礎}
+
+在中南大學大一期間，除了加強了\textbf{C++、JAVA基礎還有HTML網頁開發}，
+雖然老師上課的教材篇老舊，但我依然去W3C或是MDN去閱讀文檔。
+
+大二期間我修了\textbf{操作系統、資料庫、資料結構、演算法、計算機網路}等課程更加深了對於計算機方面的知識
+，也在大二頻繁使用Github與同學之間完成網頁開發課程專案，對於Git的使用也越來越熟練。
+開發網頁專案一開始是使用SpringMVC編寫JSP頁面實現寵物商店，資料存儲使用MySQL，
+我主力負責frontend設計，不僅學會了
+jQuery框架、Bootstrap框架，也熟悉掌握了HTTP的請求。
+在之後使用VueJs和SpringBoot+MyBatis去重構專案。
+
+大三也因為個人興趣選修了\textbf{軟體測試、機器學習與資料探勘、電子商務、
+軟件體系結構（JAVA設計模式）、雲計算及應用}等探索式的課程。
+這些加強了我對於未來就業發展方向的認知。
+
+大四畢業論文\textbf{以“基於狀態檢測的網關優化與可視化”的工業物聯網相關實務類型為主題}獲評定為優等畢業論文。
+
+\subsection{科研競賽}
+
+從大一開始我就踴躍參加各大比賽，\textbf{全國大學生創新創業訓練分別獲得過一次校級評定、兩次省級評定}。
+2020年與同學跨科系組隊參加\textbf{交通科技運輸大賽獲得校級一等獎}
+，並於2021年與商學院學生跨院系參加\textbf{全國大學生電子商務“創新、創意及創業”挑戰賽獲校級二等獎}。
+
+\subsection{自主學習}
+
+課外我不僅自主學會了目前主流的VueJs、Angular等框架（主要學習MVVM架構），
+並且學習Python Flask微服務框架
+、Golang的WebSocket聊天室、SpringBoot框架，
+除此之外自己在Server上使用Nginx Web Server部署網頁，
+了解到Nginx在各伺服器集群的負載均衡配置和配置端口反向代理。
+因為我在Telegram通訊軟體群組中因為督促大家英文打卡，
+所以自己利用開源庫編寫了一個TG多群組成員每日英文打卡Bot。
+
+大學期間，我就有自己\textbf{用Github Page和Hugo搭建自己的Blog}，
+並且玩起了ArchLinux此更多自定義化Linux發行版，
+在ArchLinux CN社群討論技術問題。
+我也善用StackOverflow、Github PR ISSUE去跟其他開發者溝通交流。
+
+\subsection{校外實習}
+
+到了大四，我因為想要在企業中有一份屬於自己的成長，
+一個人到了\textbf{上海的工業物聯網公司進行嵌入式應用研發}，
+在一開始熟悉了公司的嵌入式物聯網網關。
+對於嵌入式網關的開發，因為面對有Moxa、ORing、大全賽雪龍等客戶需求，
+我需要為他們開發物聯網的嵌入式應用，
+包括\textbf{使用Modbus RTU/TCP協議透過RS-485串列埠傳輸指令}、
+使用FTP協議傳輸物聯網裝置報錯日誌、透過串口轉網口傳輸溫度、GPIO PIN腳位控制Beeper和DIP等。
+\textbf{最後主力研發全新的嵌入式網頁控制，取代公司舊版的嵌入式網頁}。
+
+% \newpage
+
+\section{讀書計畫}
+
+\subsection{前期（研究所入學前）}
+
+\begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    學習英文，增強官網技術文檔閱讀能力。
+  \item
+    學習Rust語言，熟悉其語言特性與優勢，包括對於垃圾回收機制和記憶體佔用分配，並編寫一實務專案。
+  \item
+    針對Redis持久化特性和Kafka消費者與生產者模型消息Queue進行學習與實踐。
+  \item
+    學習各種資料結構、演算法。
+\end{enumerate}
+
+\subsection{中期（研究所期間）}
+
+\subsubsection{碩一}
+
+\begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    針對實驗室網路資源構建NAS伺服器環境，幫助實驗室的開發專案和論文資料的共享。
+  \item
+    學習\textbf{分散式資料庫與資料備份演算法策略}，避免資料庫佔用記憶體，保證資料庫的資料完整性。
+  \item 
+    學習\textbf{演化式演算法}，認知到多目標最佳化與機器學習。
+  \item
+    探索資訊安全領域，如何防止DDoS網路攻擊和XSS攻擊以及區塊鏈密碼學。
+  \item 
+    積極申請擔任助教的機會。
+\end{enumerate}
+
+\subsubsection{碩二}
+
+\begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    積極參與產學合作或與其他同學的專案合作，並且尋找實習機會。
+  \item
+    參與開源活動，貢獻開源庫的PR與Issue。
+  \item
+    編寫論文工作，準備畢業答辯。
+\end{enumerate}
+
+\subsection{遠期（畢業後）}
+
+\begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    增強專案經驗，進一步學習軟體架構師所需知識點。
+  \item
+    學習產品的設計策略，影響一公司的發展投入。
+\end{enumerate}
+
+% \newpage
+
+\section{申請動機}
+
+經歷過大學的洗禮與成長，我對於寫程式專案這件事就像搭積木一樣，
+要先有一份設計圖，再進行合作與需求討論，
+我認為一個成功的專案是需要具備一個完整與相對合理的架構，
+能達到多模塊解耦合獨立運行。對我來說，
+程式語言在其中就像一實現工具，
+\textbf{核心的思想還是演算法、計算機網路、資料庫等}。
+要有扎實的基礎才能夠對於其結構進行修正改善。
+\textbf{我在大三時期加入了教授的實驗室進行學習}，
+實驗室每週都會有週會報告科研進度，
+我認識到這些學長姐針對一篇論文的解讀都有自己的見解，
+而科研主要還是需要閱讀大量國外期刊和文獻，
+所以我也有了想要探索更深一層的知識領域，
+一直有一種欲望去進一步研究。
+
+我在大四實習期間多次申請了大公司的面試機會，
+經過兩輪技術面試和一輪HR面試且\textbf{技術面試評價都為最高的S級}，
+最終拿到\textbf{中興通訊架構團隊部門的軟體開發工程師Offer}，
+主要負責軟體的架構設計與技術方案選擇，
+雖然拿到了Offer，我依然並不滿意我現在的程度，
+藉著回台灣服兵役的這段期間思考自己的未來，一段時間的沈澱後，
+\textbf{我決定繼續深造自己}。
+
+\end{document}
