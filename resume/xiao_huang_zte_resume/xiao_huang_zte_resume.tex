@@ -1,0 +1,205 @@
+\documentclass[10pt, a4paper]{article}
+\pagestyle{empty} 
+\usepackage{ctex} % 中文的宏包
+\usepackage{indentfirst}
+\usepackage{graphicx} % 插入图片的宏包
+\usepackage{float} % 设置图片浮动位置的宏包
+\usepackage{subfigure} % 插入多图时用子图显示宏包
+\usepackage{listings} % 代码块宏包
+\usepackage{color} % 代码高亮
+\usepackage[colorlinks,linkcolor=blue]{hyperref} % URL 包
+\usepackage[pdf]{graphviz}
+\usepackage{alphalph}
+\renewcommand*{\thesubfigure}{(\arabic{subfigure})}
+%%%% 利用tikz来定位照片和学校Logo
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\renewcommand{\baselinestretch}{1.2} %定义行间距1.2
+\usepackage{titlesec}
+\usepackage{enumitem}
+% disable indent globally
+\setlength{\parindent}{0pt}
+% some general improvements, defines the XeTeX logo
+\usepackage{xltxtra}
+% use hyperlink for email and url
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+\usepackage{url}
+\urlstyle{tt}
+
+% use fontawesome
+% \newfontfamily\fontawesome[
+%     Path=./
+% ]{FontAwesome.otf}
+\usepackage{fontawesome5}
+\usepackage{xparse}
+
+\setlist{noitemsep} % removes spacing from items but leaves space around the whole list
+%\setlist{nosep} % removes all vertical spacing within and around the list
+\setlist[itemize]{topsep=0.25em, leftmargin=*}
+\setlist[enumerate]{topsep=0.25em, leftmargin=*}
+
+\titleformat{\section}         % Customise the \section command 
+  {\large\bfseries\raggedright} % Make the \section headers large (\Large),
+                               % small capitals (\scshape) and left aligned (\raggedright)
+  {}{0em}                      % Can be used to give a prefix to all sections, like 'Section ...'
+  {}                           % Can be used to insert code before the heading
+  [{\color{CVBlue}\titlerule}]                 % Inserts a horizontal line after the heading
+\titlespacing*{\section}{0cm}{*1.6}{*1.2}
+
+\usepackage[
+	a4paper,
+	left=1.2cm,
+	right=1.2cm,
+	top=1.5cm,
+	bottom=1cm,
+	nohead
+]{geometry}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+    %language=Octave,                % the language of the code
+    basicstyle=\scriptsize\Hack,           % the size of the fonts that are used for the code
+    numbers=none,                   % where to put the line-numbers
+    numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
+    stepnumber=2,                   % the step between two line-numbers. If it's 1, each line 
+                                    % will be numbered
+    numbersep=3pt,                  % how far the line-numbers are from the code
+    backgroundcolor=\color{white},      % choose the background color. You must add \usepackage{color}
+    showspaces=false,               % show spaces adding particular underscores
+    showstringspaces=false,         % underline spaces within strings
+    showtabs=false,                 % show tabs within strings adding particular underscores
+    frame=single,                   % adds a frame around the code
+    rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+    tabsize=2,                      % sets default tabsize to 2 spaces
+    captionpos=b,                   % sets the caption-position to bottom
+    breaklines=true,                % sets automatic line breaking
+    breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+    title=\lstname,                   % show the filename of files included with \lstinputlisting;
+                                    % also try caption instead of title
+    keywordstyle=\color{blue},          % keyword style
+    commentstyle=\color{dkgreen},       % comment style
+    stringstyle=\color{mauve},         % string literal style
+    escapeinside={\%*}{*},            % if you want to add LaTeX within your code
+    morekeywords={*,...}               % if you want to add more keywords to the set
+}
+\setCJKmainfont{Noto Serif CJK TC} % 主要字体 Noto Serif
+\definecolor{CVBlue}{RGB}{23,110,191}
+\newfontfamily\Hack{Hack} % 代码字体
+
+\begin{document}
+% \pagenumbering{gobble} % suppress displaying page number
+
+%%%% 利用tikz来定位照片，部分招聘单位可能需要“以貌取人”
+% \begin{tikzpicture}[remember picture, overlay] 
+%   \node[anchor = north east] at ($(current page.north east)+(-1cm,-1.2cm)$) {\includegraphics[height=2.5cm]{avatar}};
+% \end{tikzpicture}%
+%%%% 利用tikz来定位学校Logo，这里只在第一页显示，如果需要每页都有，可以考虑在页首、页尾或者background中加入，不过简历也就一两页，无所谓了
+% \begin{tikzpicture}[remember picture, overlay] 
+%   \node[anchor = north west] at ($(current page.north west)+(0.2cm,-0.2cm)$) {\includegraphics[height=2cm]{zte_logo}};
+% \end{tikzpicture}%
+%%%% 利用tikz来定位页尾栏，电子版简历使用，黑白纸质打印效果可能并不好。这里只在第一页显示，如果需要每页都有，页尾或者background中加入。
+% \begin{tikzpicture}[remember picture, overlay] 
+%   \node[anchor = south,fill=CVBlue,draw=none,minimum width=\paperwidth ,minimum height=1.5em ,align=center ,font=\footnotesize ,text=white] at ($(current page.south)$) {\faLinkedinSquare https://www.linkedin.com/in/username \qquad \faGithub https://github.com/HuangNO1 \qquad \faRssSquare http://huangno1.github.io/};
+% \end{tikzpicture}%
+%tikzpicture环境很敏感，注释周围的空格、空行都会引起水平距离或垂直距离的变化，
+%
+
+\centerline{\LARGE\bfseries{黄钰泯}}
+
+\centerline{\normalsize{应聘岗位：Java开发工程师}}
+\centerline{\normalsize{\faPhone\ (+86)180-6171-4729 \quad \faEnvelope\ \href{qqmail:1355104382@qq.com}{1355104382@qq.com}}}
+
+% \section{\makebox[\faGraduationCap][c]{\color{CVBlue}\faGraduationCap}\  教育背景}
+
+\section{\color{CVBlue}\faGraduationCap\  教育背景}
+
+\textbf{南京邮电大学 \quad 中国南京 \quad 双一流}  \hfill 2017-09 $\sim$ 2021-06
+\newline\quad 物联网学院 \quad 网络工程 \quad 本科 
+
+
+
+\section{\color{CVBlue}\faBriefcase\ 工作经历}
+
+\textbf{中兴通讯股份有限公司 \quad IT软件开发工程师} \hfill 2021-07 $\sim$ 至今
+
+\textbf{主要职责与业绩}： \quad 在数字技术产品部-产品架构团队，担任后端开发工程师，参与过三个大项目的研发和维护。
+在架构团队中作为主负责人参与架构治理相关工作（“架构评估模型”推广）。在团队中负责团队的代码设计评审，代码走查检查代码规范与逻辑，相关模块架构守护等工作。%在公司获得过黑客松大赛一等奖，部门最佳质量个人。
+
+\section{\color{CVBlue}\faUsers\ 项目经历}
+
+\textbf{iDTS数据同步服务 (SpringBoot、Redis、Mysql)} \hfill 2021-09 $\sim$ 2022-05
+
+% 项目角色： \quad 项目开发人员
+\begin{itemize}[parsep=0.5ex]
+\item \textbf{主要职责与业绩}：后端开发，负责数据同步后端转换与微服务架构搭建，经过不断需求迭代，完成公司内部100+团队使用的数据同步服务落地，达成2000+数据同步任务里程碑。
+
+\item \textbf{成长}：胜任复杂的开发需求，加深对数据库知识的掌握；数据同步方面，掌握状态机在定时同步中的理解与作用；
+项目部署方面，了解系统的高可用多点部署，并在BCM断电演练中保证业务的正常运行，达到高可用2级以上标准；
+开发方面，具备代码设计能力减少Bug产出，
+并解决30+产品bug。在开发的过程中，逐渐熟悉完整的DevOps开发流程，并认识到团队管理中协同工作重要性。
+\end{itemize}
+
+% \textbf{架构度量平台 (Maven、Hbase)} \hfill 2022-06 $\sim$ 2022-07
+% \begin{itemize}[parsep=0.5ex]
+%   \item \textbf{主要职责与业绩}：从0到1开发上线架构度量平台，可视化微服务之间的调用关系，用于指导微服务的合并和拆分，通对pinpoint的数据进行分析处理，解析出1600+微服务之间的相互调用关系%使用大数据spark解决亿级别数据处理，该方案在部门方案大赛中获得第六名（6/64）
+%   \item \textbf{成长}：熟悉了系统设计方案，从业务背景、关键需求、架构和技术选型等软件架构设计全流程，快速学习Hbase基础并上手完成相关功能的开发
+%   \end{itemize}
+
+
+\textbf{DN Market企业数字资产交易市场 (SpringBoot、Cola架构)} \hfill 2022-07 $\sim$ 2023-01
+
+% 项目角色： \quad 项目开发人员
+\begin{itemize}[parsep=0.5ex]
+\item \textbf{主要职责与业绩}：依据敏捷开发模式快速迭代产品新需求，主要负责后台微服务中DDD的落地，以及前端部分功能的开发，完成50+需求开发与故障修复。
+
+\item \textbf{成长}：从零开始参与此产品开发，理解多线程高并发服务设计、分布式锁保证事务、利用缓存达到性能提升，
+注重代码规范性与边界值，并针对代码编写单元测试检查自己的代码逻辑正确性。 同时，使用Cola架构来组织后台的业务代码。
+学习到数字化转型解决方案“数字星云”，了解到组装式架构的设计思想，并实际将这一思想在项目中执行落地。 %TODO 数字星云、组装式架构、DDD 三者联系 这个不好写
+\end{itemize}
+
+\textbf{中兴云云门户开发(SpringBoot、PostgreSQL、Golang)} \hfill 2023-02 $\sim$ 至今
+
+% 项目角色： \quad 项目开发人员
+\begin{itemize}[parsep=0.5ex]
+\item \textbf{主要职责与业绩}：负责交易引擎四大服务和数据统计服务等后端开发。担任前期项目交接维护，
+到后期跨部门协同开发，并负责用户运维工作，排查修复多环境bug。
+\item \textbf{成长}：能胜任维护相关4个微服务的维护；熟悉容器化分布式系统在项目部署架构上的设计与实现；能对业务性能问题排查优化、
+PostgreSQL索引优化，能通过索引提高查找效率，并系统性分析各环境下数据库的性能。
+\end{itemize}
+
+% \textbf{架构治理(架构指标)} \hfill 2022-02 $\sim$ 至今
+
+% 项目角色： \quad 项目开发人员
+% \begin{itemize}[parsep=0.5ex]
+% \item \textbf{主要职责与业绩}：主要负责人对各项目架构治理，制定架构原则检查模型，架构模型检查，潜入研发流程
+% \item \textbf{成长}：掌握架构治理相关指标和体系，熟悉架构落地的常见方式
+% \end{itemize}
+
+
+\section{\color{CVBlue}\faCogs\ 技术背景}
+% increase linespacing [parsep=0.5ex]
+\begin{itemize}[parsep=0.5ex]
+  \item \textbf{程序语言}： $Java$（熟悉JUC并发编程、JVM虚拟机、熟悉GC机制、Java IO模型）
+  \item \textbf{中间件和框架}：熟悉 Spring 框架、Mysql性能优化、微服务应用开发、Redis缓存、Kafka消息队列
+  \item \textbf{DevOps}：了解CI/CD，熟悉敏捷研发流程
+  \item \textbf{编码设计}：熟悉Java代码规范，数据库研发规范，设计模式，Cola架构
+\end{itemize}
+
+\section{\color{CVBlue}\faHeart\ 荣誉}
+
+\textbf{中兴通讯部门 \quad 部门最佳质量个人} \hfill 2022-08
+
+\textbf{中兴通讯部门黑客松大赛 \quad 团队第一名一等奖} \hfill 2023-09
+
+\section{\color{CVBlue}\faChalkboard\ 自我评价}
+
+\quad\quad 具备良好的分析问题和解决问题的能力，并编写微服务换包部署脚本提高团队80\%的工作效率。
+保持着持续学习的习惯，可以快速应对新技术带来的挑战。在过去的工作
+中，对于曾经解决的技术难点编写总结性文档，在团队内分享新技术，包含但不限Spring容器底层原理、Java源码中的设计模式等议题。
+能识别团队技术风险，并主动牵头解决团队痛点问题。
+\quad\quad 
+
+\end{document}
