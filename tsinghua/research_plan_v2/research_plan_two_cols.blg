@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2024/Arch Linux)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: research_plan_two_cols.aux
+The style file: tjaa.bst
+Database file #1: Example.bib
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+You've used 19 entries,
+            2920 wiz_defined-function locations,
+            835 strings with 10970 characters,
+and the built_in function-call counts, 8990 in all, are:
+= -- 512
+> -- 873
+< -- 38
++ -- 409
+- -- 146
+* -- 1094
+:= -- 1532
+add.period$ -- 0
+call.type$ -- 19
+change.case$ -- 38
+chr.to.int$ -- 18
+cite$ -- 19
+duplicate$ -- 440
+empty$ -- 469
+format.name$ -- 192
+if$ -- 1459
+int.to.chr$ -- 2
+int.to.str$ -- 0
+missing$ -- 16
+newline$ -- 71
+num.names$ -- 130
+pop$ -- 142
+preamble$ -- 1
+purify$ -- 76
+quote$ -- 0
+skip$ -- 253
+stack$ -- 0
+substring$ -- 252
+swap$ -- 224
+text.length$ -- 78
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 171
+warning$ -- 0
+while$ -- 117
+width$ -- 0
+write$ -- 199

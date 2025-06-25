@@ -1,0 +1,234 @@
+\documentclass[10pt, a4paper]{article}
+\pagestyle{empty} 
+\usepackage{ctex} % 中文的宏包
+\usepackage{indentfirst}
+\usepackage{graphicx} % 插入圖片的宏包
+\usepackage{float} % 設置圖片浮動位置的宏包
+\usepackage{subfigure} % 插入多圖時用子圖顯示宏包
+\usepackage{listings} % 代碼塊宏包
+\usepackage{color} % 代碼高亮
+\usepackage[colorlinks,linkcolor=blue]{hyperref} % URL 包
+\usepackage[pdf]{graphviz}
+\usepackage{alphalph}
+\renewcommand*{\thesubfigure}{(\arabic{subfigure})}
+%%%% 利用tikz來定位照片和學校Logo
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\renewcommand{\baselinestretch}{1.2} %定義行間距1.2
+\usepackage{titlesec}
+\usepackage{enumitem}
+% disable indent globally
+\setlength{\parindent}{0pt}
+% some general improvements, defines the XeTeX logo
+\usepackage{xltxtra}
+% use hyperlink for email and url
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+\usepackage{url}
+\urlstyle{tt}
+
+% use fontawesome
+% \newfontfamily\fontawesome[
+%     Path=./
+% ]{FontAwesome.otf}
+\usepackage{fontawesome5}
+\usepackage{xparse}
+
+\setlist{noitemsep} % removes spacing from items but leaves space around the whole list
+%\setlist{nosep} % removes all vertical spacing within and around the list
+\setlist[itemize]{topsep=0.25em, leftmargin=*}
+\setlist[enumerate]{topsep=0.25em, leftmargin=*}
+
+\titleformat{\section}         % Customise the \section command 
+  {\large\bfseries\raggedright} % Make the \section headers large (\Large),
+                               % small capitals (\scshape) and left aligned (\raggedright)
+  {}{0em}                      % Can be used to give a prefix to all sections, like 'Section ...'
+  {}                           % Can be used to insert code before the heading
+  [{\color{CVBlue}\titlerule}]                 % Inserts a horizontal line after the heading
+\titlespacing*{\section}{0cm}{*1.6}{*1.2}
+
+\usepackage[
+	a4paper,
+	left=1.2cm,
+	right=1.2cm,
+	top=1.5cm,
+	bottom=1cm,
+	nohead
+]{geometry}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+    %language=Octave,                % the language of the code
+    basicstyle=\scriptsize\Hack,           % the size of the fonts that are used for the code
+    numbers=none,                   % where to put the line-numbers
+    numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
+    stepnumber=2,                   % the step between two line-numbers. If it's 1, each line 
+                                    % will be numbered
+    numbersep=3pt,                  % how far the line-numbers are from the code
+    backgroundcolor=\color{white},      % choose the background color. You must add \usepackage{color}
+    showspaces=false,               % show spaces adding particular underscores
+    showstringspaces=false,         % underline spaces within strings
+    showtabs=false,                 % show tabs within strings adding particular underscores
+    frame=single,                   % adds a frame around the code
+    rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+    tabsize=2,                      % sets default tabsize to 2 spaces
+    captionpos=b,                   % sets the caption-position to bottom
+    breaklines=true,                % sets automatic line breaking
+    breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+    title=\lstname,                   % show the filename of files included with \lstinputlisting;
+                                    % also try caption instead of title
+    keywordstyle=\color{blue},          % keyword style
+    commentstyle=\color{dkgreen},       % comment style
+    stringstyle=\color{mauve},         % string literal style
+    escapeinside={\%*}{*},            % if you want to add LaTeX within your code
+    morekeywords={*,...}               % if you want to add more keywords to the set
+}
+\setCJKmainfont{Noto Serif CJK TC} % 主要字體 Noto Serif
+\definecolor{CVBlue}{RGB}{23,110,191}
+\newfontfamily\Hack{Hack} % 代碼字體
+
+\begin{document}
+% \pagenumbering{gobble} % suppress displaying page number
+
+%%%% 利用tikz來定位照片，部分招聘單位可能需要“以貌取人”
+% \begin{tikzpicture}[remember picture, overlay] 
+%   \node[anchor = north east] at ($(current page.north east)+(-1cm,-1.2cm)$) {\includegraphics[height=2.5cm]{avatar}};
+% \end{tikzpicture}%
+%%%% 利用tikz來定位學校Logo，這裡只在第一頁顯示，如果需要每頁都有，可以考慮在頁首、頁尾或者background中加入，不過簡歷也就一兩頁，無所謂了
+% \begin{tikzpicture}[remember picture, overlay] 
+%   \node[anchor = north west] at ($(current page.north west)+(0.2cm,-0.2cm)$) {\includegraphics[height=2cm]{zte_logo}};
+% \end{tikzpicture}%
+%%%% 利用tikz來定位頁尾欄，電子版簡歷使用，黑白紙質列印效果可能並不好。這裡只在第一頁顯示，如果需要每頁都有，頁尾或者background中加入。
+% \begin{tikzpicture}[remember picture, overlay] 
+%   \node[anchor = south,fill=CVBlue,draw=none,minimum width=\paperwidth ,minimum height=1.5em ,align=center ,font=\footnotesize ,text=white] at ($(current page.south)$) {\faLinkedinSquare https://www.linkedin.com/in/username \qquad \faGithub https://github.com/HuangNO1 \qquad \faRssSquare http://huangno1.github.io/};
+% \end{tikzpicture}%
+%tikzpicture環境很敏感，注釋周圍的空格、空行都會引起水平距離或垂直距離的變化，
+%
+
+\centerline{\LARGE\bfseries{黃柏曛}}
+
+% \centerline{\normalsize{期望薪資：80k-100k新台幣/月}}
+
+\centerline{\normalsize{\faPhone\ (+86)186-7312-1200 \quad \faEnvelope\ \href{gmail:fh831.cp9gw@gmail.com}{fh831.cp9gw@gmail.com}}}
+
+% \section{\makebox[\faGraduationCap][c]{\color{CVBlue}\faGraduationCap}\  教育背景}
+
+\section{\color{CVBlue}\faGraduationCap\  学历背景}
+
+\textbf{中南大学 \quad 湖南省长沙市 \quad 985 211} \hfill 2018-09 $\sim$ 2022-06
+
+% 2023年中國排名28、2024年QS排名452、2023年THE排名351
+
+计算机学院 \quad 软件工程 \quad 本科
+
+\section{\color{CVBlue}\faBriefcase\ 工作经验}
+
+\textbf{上海钧盟实业有限公司 \quad 研发工程师（实习）} \hfill 2021-09 $\sim$ 2022-02
+
+\textbf{主要职责与业绩}： \quad 负责大全赛雪龙、ORing、Moxa 等客户的智能网关应用开发，
+使用工业物联网的相关协议结合网页开发技术解决装置的状态的读取、网关系统可视化操作等，
+将公司旧的 Web1.0 网关控制页面功能重构设计升级 Web2.0，提高用户的使用体验与功能研发。
+
+\textbf{中兴通讯股份有限公司(ZTE) \quad IT软件开发（全栈工程师）} \hfill 2023-02 $\sim$ 至今
+
+\textbf{主要职责与业绩}： \quad 在数字技术产品部-产品架构团队，担任全栈工程师，负责公司产品（iMarket 市场产品系列）
+研发与运维工作，并负责公司内部 200+ 项目组使用的数据同步服务器运维，
+以及部门间整体技术能力提升工作: 完成 100+ 架构人才培养计划跟进与落地、架构相关事宜。
+
+
+\section{\color{CVBlue}\faUsers\ 项目经验}
+
+\textbf{智能网关应用开发 (Nanopi、C、Modbus、FTP、Vue、Flask)} \hfill 2021-11 $\sim$ 2022-02
+
+% 項目角色： \quad 項目開發人員
+\begin{itemize}[parsep=0.5ex]
+\item \textbf{主要职责与业绩}：使用 Modbus 协议读取多个物联网装置的信号变化至共享内存，
+针对信号变化异常用 FTP 传输装置的异常日志，最终使用 VueJS、Flask 前后端分离编写网关的
+网页控制，最终300多台销售出去的产品应用在工业智能制造场景。
+
+\item \textbf{成長}：学习 Modbus 协议透过串行端口与网口进行物联网装置的命令读取读写。
+网关的网页控制使用 Flask 框架，模块化区分系统信息、文件管理、应用配置文件、
+SQLite db 数据库管理、进程管理、网卡设置等功能。
+\end{itemize}
+
+\textbf{ iMarket市场产品系列研发 (Java、Vue)} \hfill 2023-02 $\sim$ 2024-12
+
+% 項目角色： \quad 項目開發人員
+\begin{itemize}[parsep=0.5ex]
+\item \textbf{主要职责与业绩}：依据敏捷开发模式，快速迭代产品新需求，负责公司产品的网页前端、
+后端开发、开源组件治理、发版流程，前期进入DN Market数字资产市场项目组和后期进入中兴云项目组，
+在公司期间完成50+需求、个人总结文档100余篇。
+
+\item \textbf{成長}：胜任复杂的开发需求（涉及复杂的业务逻辑和多线程场景），并针对需求编写代码详细设计，
+包括流程图、时序图、代码层架构图等；解决80+产品 bug，并透过总结方式锻炼发现问题与解决问题的能力，最後熟悉完整的开发流程，理解到团队管理的协同工作重要性。
+\end{itemize}
+
+\textbf{ iDTS数据同步中台运维} \hfill 2023-02 $\sim$ 2024-12
+
+% 項目角色： \quad 項目開發人員
+\begin{itemize}[parsep=0.5ex]
+\item \textbf{主要职责与业绩}：7*24小时技术支持200+项目组解决数据库同步数据问题，配合节假日系统高可用的断电演练、
+周末加班紧急修改故障发版。一年内多次晚上加班完成多环境节点微服务迁移至公司容灾容器平台，
+并涉及三次以上大表数据迁移，其中一次涉及整个部门团队的50亿数据同步，经过前期多次严谨分析评估，
+顺利完成同步工作。
+
+\item \textbf{成長}：熟悉高可用部署架构，同步数据使用的机器节点采用同城双活，保证一个区域断电后仍能正常排队同步，
+熟悉多线程解决排队阻塞，以及使用Redis缓存提高读写效率，了解服务器节点资源利用与运行脚本。
+\end{itemize}
+
+\textbf{openai自动化生成单元测试代码(Java、Langchain)} \hfill 2023-09 $\sim$ 2023-10
+
+% 項目角色： \quad 項目開發人員
+\begin{itemize}[parsep=0.5ex]
+\item \textbf{主要職責與業績}：部门黑客松比赛团队比赛主题，后续成为项目组长期使用的代码生成工具。
+我负责实现 openai api 核心交互逻辑、token 自适应动态裁切算法。最终团队拿到黑客松大赛第一名，
+获颁一等奖。为公司的研发部门大幅提高研发效率。
+
+\item \textbf{成長}：在团队合作下使简单的程序代码生成单元测试代码正确率高达 80\% 以上，嵌套两层的程序代码正确率下降到 50\%，依赖嵌套更复杂的程序代码成功率迅速下降。认识到 openai 使用 prompt 需要不断调整以提高回答正确率，并在回答错误的情况下进行错误修复。
+\end{itemize}
+
+\section{\color{CVBlue}\faCogs\ 技术背景}
+% increase linespacing [parsep=0.5ex]
+\begin{itemize}[parsep=0.5ex]
+  \item \textbf{程序语言}： $C++, C, JavaScript, Java, Python$.
+  % \item 平台： Windows, ArchLinux.
+  \item \textbf{开发}： 熟练使用VueJS和Angular前端框架、Flask和FastApi微服务框架、SpringBoot框架、数据库、计算机网络。
+  \item \textbf{代码设计}： 具备基本架构思维，能针对复杂的业务场景设计时序图、流程图、代码分层架构图、数据库脚本。
+  \item \textbf{科研思维}：具备基本发现问题、研究问题、提出解决方法的思维方式，工作期间总结文档100+。
+\end{itemize}
+
+\section{\color{CVBlue}\faHeart\ 荣誉}
+\textbf{2019年度中南大学台湾、港澳及华侨学生奖学金三等奖} \hfill 2019-12
+
+\textbf{2020年中南大学交通科技运输大赛校级一等奖} \hfill 2020-01
+
+\textbf{2020年中南大学大学生创新创业项目校级评定奖} \hfill 2020-06
+
+\textbf{2021全国大学生电子商务三创挑战赛校级二等奖} \hfill 2021-05
+
+\textbf{2021大学生创新创业项目省级评定} \hfill 2021-06
+
+\textbf{2021年度台湾、港澳及华侨学生奖学金二等奖} \hfill 2021-12
+
+\textbf{2022大学生创新创业项目省级评定} \hfill 2022-06
+
+\textbf{2023中兴通讯部门表现优秀试用期提前转正} \hfill 2023-07
+
+\textbf{2023中兴通讯部门黑客松大赛 团队一等奖} \hfill 2023-09
+
+\textbf{2023中兴通讯部门AI技术大会AI提效案例二等奖} \hfill 2023-11
+
+% \section{\color{CVBlue}\faAtlassian\ 個人小結}
+
+% 本人在中南大學從 2018 入學至 2020 大三第二學期期間參加了兩次大學生創新創業項目，我也參加了中南大學交通院的 2020 交通科技大賽、服務外包大賽與軟體創新大賽，都加強了我的成長與經驗。我的個人參與的開發項目可以查看我的 Github (ID: HuangNO1)，我的 Github 中不乏我平常練習的內容，也入門了 AngularJS、ReactJS 前端技術開發。之前也為了比賽學了快應用，目前我正在學習微信小程序開發。我在 Github Page 利用 Hugo 打造自己的靜態頁面 Blog。在 Blog 中我不僅分享了我的開發經驗幫助別人進行學習，也讓自己能夠溫故知新，我自己平常是使用 ArchLinux 的 Linux 系統進行開發工作，所以 Blog 中的文章有些相關的內容，其中光是 Blog 的編寫就讓我熟悉 Git 版本控制和 Markdown 語言。目前我還有關於機器學習與深度學習的文章正在編寫，以自己的角度與語言重新解釋 ML 與 DL 這些技術的學習，幫助小白入門。最後，我已經在 2020 大三第一學期加入了教授的實驗室，並在實驗室中學習，教授是專門研究生物基因序列與資料探勘，實驗室每天中午有技術會議與論文拜讀，我很高興有這樣的機會讓我進入實驗室和師兄師姐們學習，也很慶幸我自己在中南大學學到了很多。 
+
+\section{\color{CVBlue}\faChalkboard\ 自我评价}
+
+\quad\quad 我平时喜好编程，对自己的项目也负有责任感，与同学合作开发也有良好的沟通协作。
+在技术追求上采取积极态度，我不仅通过许多项目经验磨练自己的能力，也虚心接受别人的指导，
+并希望透过科研获得更多的成长与反思。
+
+
+\end{document}  

@@ -1,0 +1,71 @@
+\begin{thebibliography}{}
+\makeatletter
+\relax
+\def\mn@urlcharsother{\let\do\@makeother \do\$\do\&\do\#\do\^\do\_\do\%\do\~}
+\def\mn@doi{\begingroup\mn@urlcharsother \@ifnextchar [ {\mn@doi@} {\mn@doi@[]}}
+\def\mn@doi@[#1]#2{\def\@tempa{#1}\ifx\@tempa\@empty \href {http://dx.doi.org/#2} {doi:#2}\else \href {http://dx.doi.org/#2} {#1}\fi \endgroup}
+\def\mn@url#1#2{\begingroup\mn@urlcharsother \href{#1}{#2}\endgroup}
+\def\mn@eprint#1#2{\mn@eprint@#1:#2::\@nil}
+\def\mn@eprint@arXiv#1{\href {http://arxiv.org/abs/#1} {{\tt arXiv:#1}}}
+\def\mn@eprint@dblp#1{\href {http://dblp.uni-trier.de/rec/bibtex/#1.xml} {dblp:#1}}
+\def\mn@eprint@#1:#2:#3:#4\@nil{\def\@tempa {#1}\def\@tempb {#2}\def\@tempc {#3}\ifx \@tempc \@empty \let \@tempc \@tempb \let \@tempb \@tempa \fi \ifx \@tempb \@empty \def\@tempb {arXiv}\fi \@ifundefined {mn@eprint@\@tempb}{\@tempb:\@tempc}{\expandafter \expandafter \csname mn@eprint@\@tempb\endcsname \expandafter{\@tempc}}}
+
+\bibitem[\protect\citeauthoryear{Alharbi}{Alharbi}{2022}]{alharbi2022novel}
+Alharbi Y.,  2022, International Journal of Pervasive Computing and Communications
+
+\bibitem[\protect\citeauthoryear{Brown \others,}{Brown \others}{2020}]{brown2020languagemodelsfewshotlearners}
+Brown T.~B.,  \others, 2020, Language Models are Few-Shot Learners (\mn@eprint {arXiv} {2005.14165}), \url {https://arxiv.org/abs/2005.14165}
+
+\bibitem[\protect\citeauthoryear{Cui, Du, Yang, Shao  \& Liew}{Cui \others}{2024}]{cui2024llmind}
+Cui H.,  Du Y.,  Yang Q.,  Shao Y.,   Liew S.~C.,  2024, IEEE Communications Magazine
+
+\bibitem[\protect\citeauthoryear{Gao, Ye, Xiao, Xiao  \& Kim}{Gao \others}{2024}]{gao2024guiding}
+Gao Y.,  Ye Z.,  Xiao M.,  Xiao Y.,   Kim D.~I.,  2024, arXiv preprint arXiv:2408.13071
+
+\bibitem[\protect\citeauthoryear{Hao, Hengyu, Xuchen, Defu, Tie  \& Wei}{Hao \others}{2019}]{9034736}
+Hao C.,  Hengyu L.,  Xuchen L.,  Defu W.,  Tie G.,   Wei W.,  2019, in 2019 4th International Conference on Power and Renewable Energy (ICPRE). pp 65--69, \mn@doi{10.1109/ICPRE48497.2019.9034736}
+
+\bibitem[\protect\citeauthoryear{Hu, Shen, Wallis, Allen-Zhu, Li, Wang, Wang  \& Chen}{Hu \others}{2021a}]{hu2021loralowrankadaptationlarge}
+Hu E.~J.,  Shen Y.,  Wallis P.,  Allen-Zhu Z.,  Li Y.,  Wang S.,  Wang L.,   Chen W.,  2021a, LoRA: Low-Rank Adaptation of Large Language Models (\mn@eprint {arXiv} {2106.09685}), \url {https://arxiv.org/abs/2106.09685}
+
+\bibitem[\protect\citeauthoryear{Hu, Shen, Wallis, Allen{-}Zhu, Li, Wang  \& Chen}{Hu \others}{2021b}]{DBLP:journals/corr/abs-2106-09685}
+Hu E.~J.,  Shen Y.,  Wallis P.,  Allen{-}Zhu Z.,  Li Y.,  Wang S.,   Chen W.,  2021b, \mn@url {https://arxiv.org/abs/2106.09685} {CoRR}, abs/2106.09685
+
+\bibitem[\protect\citeauthoryear{Kalita}{Kalita}{2024}]{kalita2024large}
+Kalita A.,  2024, arXiv preprint arXiv:2407.20970
+
+\bibitem[\protect\citeauthoryear{Mohamed, Elmor, Smarandache  \& Metwaly}{Mohamed \others}{2024}]{mohamed2024efficient}
+Mohamed M.,  Elmor A.,  Smarandache F.,   Metwaly A.~A.,  2024, Neutrosophic Sets and Systems, 72, 1
+
+\bibitem[\protect\citeauthoryear{Reuer, Besse, Wernli, Magnard, Kurpiers, Norris, Wallraff  \& Eichler}{Reuer \others}{2022}]{Reuer_2022}
+Reuer K.,  Besse J.-C.,  Wernli L.,  Magnard P.,  Kurpiers P.,  Norris G.~J.,  Wallraff A.,   Eichler C.,  2022, \mn@doi [Physical Review X] {10.1103/physrevx.12.011008}, 12
+
+\bibitem[\protect\citeauthoryear{Sarabi, Yin  \& Liu}{Sarabi \others}{2023}]{sarabi2023llm}
+Sarabi A.,  Yin T.,   Liu M.,  2023, in Proceedings of the 2023 ACM on Internet Measurement Conference. pp 478--484
+
+\bibitem[\protect\citeauthoryear{Shazeer, Mirhoseini, Maziarz, Davis, Le, Hinton  \& Dean}{Shazeer \others}{2017}]{DBLP:journals/corr/ShazeerMMDLHD17}
+Shazeer N.,  Mirhoseini A.,  Maziarz K.,  Davis A.,  Le Q.~V.,  Hinton G.~E.,   Dean J.,  2017, \mn@url {http://arxiv.org/abs/1701.06538} {CoRR}, abs/1701.06538
+
+\bibitem[\protect\citeauthoryear{Sheng \others,}{Sheng \others}{2024}]{sheng2024slora}
+Sheng Y.,  \others, 2024, Proceedings of Machine Learning and Systems, 6, 296
+
+\bibitem[\protect\citeauthoryear{Shirali, Sani, Ahmadi  \& Serral}{Shirali \others}{2024}]{shirali2024llm}
+Shirali M.,  Sani M.~F.,  Ahmadi Z.,   Serral E.,  2024, arXiv preprint arXiv:2409.03478
+
+\bibitem[\protect\citeauthoryear{Stiennon \others,}{Stiennon \others}{2020}]{DBLP:journals/corr/abs-2009-01325}
+Stiennon N.,  \others, 2020, \mn@url {https://arxiv.org/abs/2009.01325} {CoRR}, abs/2009.01325
+
+\bibitem[\protect\citeauthoryear{Stiennon \others,}{Stiennon \others}{2022}]{stiennon2022learningsummarizehumanfeedback}
+Stiennon N.,  \others, 2022, Learning to summarize from human feedback (\mn@eprint {arXiv} {2009.01325}), \url {https://arxiv.org/abs/2009.01325}
+
+\bibitem[\protect\citeauthoryear{THANDI}{THANDI}{2024}]{thandi2024revolutionizing}
+THANDI N.~S.,  2024, IEEE access
+
+\bibitem[\protect\citeauthoryear{Zhang, Wang, Jin, Chen, Zhang  \& Liu}{Zhang \others}{2024}]{zhang2024prototypical}
+Zhang J.,  Wang X.,  Jin Y.,  Chen C.,  Zhang X.,   Liu K.,  2024, arXiv preprint arXiv:2406.06606
+
+\bibitem[\protect\citeauthoryear{Zuo, Wang, Zhu, Zhang, Ye, Yu  \& Zhou}{Zuo \others}{2024}]{zuo2024federated}
+Zuo X.,  Wang M.,  Zhu T.,  Zhang L.,  Ye D.,  Yu S.,   Zhou W.,  2024, arXiv preprint arXiv:2406.04076
+
+\makeatother
+\end{thebibliography}

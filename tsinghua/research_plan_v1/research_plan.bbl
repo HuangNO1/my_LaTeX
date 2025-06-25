@@ -1,0 +1,58 @@
+\begin{thebibliography}{10}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Zuo et~al.(2024)Zuo, Wang, Zhu, Zhang, Ye, Yu, and Zhou]{zuo2024federated}
+Xuhan Zuo, Minghao Wang, Tianqing Zhu, Lefeng Zhang, Dayong Ye, Shui Yu, and Wanlei Zhou.
+\newblock Federated trustchain: Blockchain-enhanced llm training and unlearning.
+\newblock \emph{arXiv preprint arXiv:2406.04076}, 2024.
+
+\bibitem[Kalita(2024)]{kalita2024large}
+Alakesh Kalita.
+\newblock Large language models (llms) for semantic communication in edge-based iot networks.
+\newblock \emph{arXiv preprint arXiv:2407.20970}, 2024.
+
+\bibitem[Cui et~al.(2024)Cui, Du, Yang, Shao, and Liew]{cui2024llmind}
+Hongwei Cui, Yuyang Du, Qun Yang, Yulin Shao, and Soung~Chang Liew.
+\newblock Llmind: Orchestrating ai and iot with llm for complex task execution.
+\newblock \emph{IEEE Communications Magazine}, 2024.
+
+\bibitem[Shirali et~al.(2024)Shirali, Sani, Ahmadi, and Serral]{shirali2024llm}
+Mohsen Shirali, Mohammadreza~Fani Sani, Zahra Ahmadi, and Estefania Serral.
+\newblock Llm-based event abstraction and integration for iot-sourced logs.
+\newblock \emph{arXiv preprint arXiv:2409.03478}, 2024.
+
+\bibitem[Mohamed et~al.(2024)Mohamed, Elmor, Smarandache, and Metwaly]{mohamed2024efficient}
+Mona Mohamed, Alaa Elmor, Florentin Smarandache, and Ahmed~A Metwaly.
+\newblock An efficient superhypersoft framework for evaluating llms-based secure blockchain platforms.
+\newblock \emph{Neutrosophic Sets and Systems}, 72:\penalty0 1--21, 2024.
+
+\bibitem[THANDI(2024)]{thandi2024revolutionizing}
+NARINDERJIT~SINGH THANDI.
+\newblock Revolutionizing cyber threat detection with large language models: A privacy-preserving bert-based lightweight model for iot/iiot devices.
+\newblock 2024.
+
+\bibitem[Zhang et~al.(2024)Zhang, Wang, Jin, Chen, Zhang, and Liu]{zhang2024prototypical}
+Jinghan Zhang, Xiting Wang, Yiqiao Jin, Changyu Chen, Xinhao Zhang, and Kunpeng Liu.
+\newblock Prototypical reward network for data-efficient rlhf.
+\newblock \emph{arXiv preprint arXiv:2406.06606}, 2024.
+
+\bibitem[Sheng et~al.(2024)Sheng, Cao, Li, Hooper, Lee, Yang, Chou, Zhu, Zheng, Keutzer, et~al.]{sheng2024slora}
+Ying Sheng, Shiyi Cao, Dacheng Li, Coleman Hooper, Nicholas Lee, Shuo Yang, Christopher Chou, Banghua Zhu, Lianmin Zheng, Kurt Keutzer, et~al.
+\newblock Slora: Scalable serving of thousands of lora adapters.
+\newblock \emph{Proceedings of Machine Learning and Systems}, 6:\penalty0 296--311, 2024.
+
+\bibitem[Gao et~al.(2024)Gao, Ye, Xiao, Xiao, and Kim]{gao2024guiding}
+Yulan Gao, Ziqiang Ye, Ming Xiao, Yue Xiao, and Dong~In Kim.
+\newblock Guiding iot-based healthcare alert systems with large language models.
+\newblock \emph{arXiv preprint arXiv:2408.13071}, 2024.
+
+\bibitem[Sarabi et~al.(2023)Sarabi, Yin, and Liu]{sarabi2023llm}
+Armin Sarabi, Tongxin Yin, and Mingyan Liu.
+\newblock An llm-based framework for fingerprinting internet-connected devices.
+\newblock In \emph{Proceedings of the 2023 ACM on Internet Measurement Conference}, pages 478--484, 2023.
+
+\end{thebibliography}
